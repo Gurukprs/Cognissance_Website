@@ -103,7 +103,7 @@ function App() {
                 <span>Inter Department Symposium</span>
               </div>
             </div>
-            <p className="txt-bottom">shots that will change your mind</p>
+            <p className="txt-bottom">Cognissance team</p>
           </div>
         </section>
         <section>

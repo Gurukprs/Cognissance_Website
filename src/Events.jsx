@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styled from "styled-components";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const events = [
@@ -21,12 +20,12 @@ const events = [
 
 const Events = () => {
   const eventsRef = useRef([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     eventsRef.current.forEach((event, index) => {
-      const direction = index % 2 === 0 ? "-150%" : "150%"; // Alternating slide-in direction
-
-      gsap.fromTo(
+      const direction = index % 2 === 0 ? "-150%" : "150%";
+      const animation = gsap.fromTo(
         event,
         { opacity: 0, x: direction, scale: 0.9 },
         {
@@ -37,48 +36,82 @@ const Events = () => {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: event,
-            start: "top 85%", // Start when the element enters 85% of the viewport
-            end: "top 15%", // End when it leaves 15% of the viewport
-            scrub: 1, // Smoother sync with scroll
+            start: "top 85%",
+            end: "top 15%",
+            scrub: 1,
             toggleActions: "play none reverse none",
-            invalidateOnRefresh: true,
-            markers: false, // Set to true for debugging
-          },
+            invalidateOnRefresh: true
+          }
         }
       );
+  
+      // Store animation instance
+      event.animation = animation;
     });
+  
+    return () => {
+      eventsRef.current.forEach((event) => {
+        if (event.animation) event.animation.kill();
+      });
+    };
   }, []);
+  
+  // Pause ScrollTrigger when popup is open
+  useEffect(() => {
+    if (selectedEvent) {
+      ScrollTrigger.getAll().forEach(trigger => trigger.disable());
+    } else {
+      ScrollTrigger.getAll().forEach(trigger => trigger.enable());
+    }
+  }, [selectedEvent]);
+  
+
+  const openPopup = (event) => {
+    setSelectedEvent(event);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top smoothly
+    document.body.style.overflow = "hidden"; // Disable background scrolling
+  };
+  
+  const closePopup = () => {
+    setSelectedEvent(null);
+    document.body.style.overflow = "auto"; // Re-enable scrolling when popup closes
+  };
+  
 
   return (
-    <EventsContainer>
-      <SectionTitle>Technical Events</SectionTitle>
-      {events.slice(0, 5).map((event, index) => (
-        <EventCard key={event.id} ref={(el) => (eventsRef.current[index] = el)}>
-          <EventImage>
-            <img src={event.image} alt={event.name} />
-          </EventImage>
-          <EventDetails>
-            <EventTitle>{event.name}</EventTitle>
-            <EventDescription>{event.description}</EventDescription>
-            <RegisterBtn href="#register">Register Now</RegisterBtn>
-          </EventDetails>
-        </EventCard>
-      ))}
+    <>
+      <EventsContainer>
+        <SectionTitle>Technical Events</SectionTitle>
+        {events.map((event, index) => (
+          <EventCard key={event.id} ref={(el) => (eventsRef.current[index] = el)}>
+            <EventImage>
+              <img src={event.image} alt={event.name} />
+            </EventImage>
+            <EventDetails>
+              <EventTitle>{event.name}</EventTitle>
+              <EventDescription>{event.description}</EventDescription>
+              <RegisterBtn onClick={() => openPopup(event)}>Register Now</RegisterBtn>
+            </EventDetails>
+          </EventCard>
+        ))}
+      </EventsContainer>
 
-      <SectionTitle>Non-Technical Events</SectionTitle>
-      {events.slice(5).map((event, index) => (
-        <EventCard key={event.id} ref={(el) => (eventsRef.current[index + 5] = el)}>
-          <EventImage>
-            <img src={event.image} alt={event.name} />
-          </EventImage>
-          <EventDetails>
-            <EventTitle>{event.name}</EventTitle>
-            <EventDescription>{event.description}</EventDescription>
-            <RegisterBtn href="#register">Register Now</RegisterBtn>
-          </EventDetails>
-        </EventCard>
-      ))}
-    </EventsContainer>
+      {selectedEvent && (
+        <PopupOverlay onClick={closePopup}>
+          <PopupCard onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={closePopup}>×</CloseButton>
+            <PopupImage src={selectedEvent.image} alt={selectedEvent.name} />
+            <PopupContent>
+              <PopupTitle>{selectedEvent.name}</PopupTitle>
+              <PopupDescription>{selectedEvent.description}</PopupDescription>
+              <PopupForm>
+                <p>Registration form will appear here.</p>
+              </PopupForm>
+            </PopupContent>
+          </PopupCard>
+        </PopupOverlay>
+      )}
+    </>
   );
 };
 
@@ -90,7 +123,6 @@ const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  min-height: 100vh;
 `;
 
 const SectionTitle = styled.h2`
@@ -108,35 +140,18 @@ const EventCard = styled.div`
   background: #1e1e1e;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-  opacity: 0; /* Hidden initially */
-  transform: translateX(100%);
   transition: all 0.4s ease;
-
   &:hover {
     background: #004e92;
     transform: scale(1.08);
-    box-shadow: 0px 12px 24px rgba(0, 78, 146, 0.8);
   }
 `;
 
 const EventImage = styled.div`
   flex: 1.2;
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-
   img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
     border-radius: 15px;
-    transition: transform 0.5s ease-in-out, filter 0.4s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.1) contrast(1.2);
   }
 `;
 
@@ -157,20 +172,95 @@ const EventDescription = styled.p`
   color: #c0c0c0;
 `;
 
-const RegisterBtn = styled.a`
-  display: inline-block;
+const RegisterBtn = styled.button`
   padding: 15px 30px;
   background-color: #000;
   color: #f5f5f5;
   border-radius: 5px;
-  text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
   &:hover {
     background-color: #333;
   }
+`;
+
+// Popup Styles
+const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;  /* Increase to make sure it's above everything */
+`;
+
+
+const PopupCard = styled.div`
+  background: #1e1e1e;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.3s ease-out;
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+`;
+
+const PopupImage = styled.img`
+  width: 100%;
+  border-radius: 10px;
+`;
+
+const PopupContent = styled.div`
+  margin-top: 20px;
+`;
+
+const PopupTitle = styled.h2`
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #f5f5f5;
+`;
+
+const PopupDescription = styled.p`
+  font-size: 1.3rem;
+  color: #c0c0c0;
+`;
+
+const PopupForm = styled.div`
+  margin-top: 20px;
+  padding: 15px;
+  background: #292929;
+  border-radius: 10px;
 `;
 
 export default Events;

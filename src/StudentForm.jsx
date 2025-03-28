@@ -1,85 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const StudentForm = () => {
+const StudentForm = ({ event }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    rollNumber: '',
-    teamMembers: '',
+    name: "",
+    email: "",
+    rollNumber: "",
+    teamMembers: "",
+    event: event.name, // Automatically store event name
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwBjh1Q8oOTPycBChU5vFn4O8rmzHzVUkeQG3S0A3rdHMiWgWctMrCqxRHsua4Og7IY/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
-        const result = await response.json();
-        console.log('Response from server:', result);
-        alert('Data submitted successfully!');
-        setFormData({ name: '', email: '', rollNumber: '', teamMembers: '' });
+        alert("Registration Successful!");
+        setFormData({ name: "", email: "", rollNumber: "", teamMembers: "", event: event.name });
       } else {
-        alert('Failed to submit data. Please try again.');
+        alert("Failed to submit data.");
       }
     } catch (error) {
-      console.error('Error submitting data:', error);
-      alert('An error occurred. Check the console for details.');
+      console.error("Error:", error);
+      alert("An error occurred.");
     }
   };
-  
-  
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Roll Number:
-        <input
-          type="text"
-          name="rollNumber"
-          value={formData.rollNumber}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Team Members:
-        <textarea
-          name="teamMembers"
-          value={formData.teamMembers}
-          onChange={handleChange}
-        />
-      </label>
+      <h2>Register for {event.name}</h2>
+      <label>Name:</label>
+      <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+
+      <label>Email:</label>
+      <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+
+      <label>Roll Number:</label>
+      <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} required />
+
+      <label>Team Members:</label>
+      <textarea name="teamMembers" value={formData.teamMembers} onChange={handleChange} />
+
       <button type="submit">Submit</button>
     </form>
   );

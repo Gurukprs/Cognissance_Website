@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./Navbar";
-import StudentForm from "./StudentForm";
+// import StudentForm from "./StudentForm";
 import "./style.css";
 import Events from "./Events";
 function App() {
@@ -111,6 +112,14 @@ function App() {
           <div>
             <Events />
           </div>
+          {/* <AuthProvider>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Events />} />
+                <Route path="/register" element={<StudentForm />} />
+              </Routes>
+            </Router>
+          </AuthProvider> */}
         </section>
       </div>
     </div>

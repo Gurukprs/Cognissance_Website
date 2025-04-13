@@ -3,9 +3,23 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./Navbar";
-// import StudentForm from "./StudentForm";
-import "./style.css";
 import Events from "./Events";
+
+// Import individual event registration components
+import CodingContest from "./registrations/CodingContest";
+import Hackathon from "./registrations/Hackathon";
+import DebuggingChallenge from "./registrations/DebuggingChallenge";
+import MachineLearningChallenge from "./registrations/MachineLearningChallenge";
+import AppDevelopmentChallenge from "./registrations/AppDevelopmentChallenge";
+
+import QuizBowl from "./registrations/QuizBowl";
+import PublicSpeaking from "./registrations/PublicSpeaking";
+import PhotographyContest from "./registrations/PhotographyContest";
+import DebateChampionship from "./registrations/DebateChampionship";
+import ArtAndCraftExhibition from "./registrations/ArtAndCraftExhibition";
+
+import "./style.css";
+
 function App() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +28,6 @@ function App() {
       toggleActions: "play none none reverse",
     });
 
-    // Animations for the video section
     gsap.to(".img-container", {
       scale: 52,
       ease: "ease",
@@ -27,7 +40,6 @@ function App() {
       },
     });
 
-    // Animations for left and right text elements
     gsap.to(".right", {
       autoAlpha: 0,
       x: 500,
@@ -45,7 +57,6 @@ function App() {
       },
     });
 
-    // Animations for bottom text
     gsap.to(".txt-bottom", {
       autoAlpha: 0,
       letterSpacing: -10,
@@ -55,7 +66,6 @@ function App() {
       },
     });
 
-    // Create a single timeline for animations
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".wrapper",
@@ -78,51 +88,60 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Router>
       <Navbar />
-      {/* Your JSX content goes here */}
-      <div className="wrapper">
-        <section className="video-section">
-          <div className="video-container">
-            <video src="/media/flower.mp4" loop muted autoPlay></video>
-          </div>
-          <div className="img-container">
-            <img src="/media/window.png" alt="" className="img" />
-          </div>
-          <div className="text-content">
-            <div className="img_txt">
-              <div className="title sm left">
-                <span>CSEA & CCC</span>
-              </div>
-              <div className="title bg left">
-                <span>Presents</span>
-              </div>
-              <div className="title bg right">
-                <span>An</span>
-              </div>
-              <div className="title bg right symposium">
-                <span>Inter Department Symposium</span>
-              </div>
+      <Routes>
+        {/* Home page with hero section and events */}
+        <Route
+          path="/"
+          element={
+            <div className="wrapper">
+              <section className="video-section">
+                <div className="video-container">
+                  <video src="/media/flower.mp4" loop muted autoPlay></video>
+                </div>
+                <div className="img-container">
+                  <img src="/media/window.png" alt="" className="img" />
+                </div>
+                <div className="text-content">
+                  <div className="img_txt">
+                    <div className="title sm left">
+                      <span>CSEA & CCC</span>
+                    </div>
+                    <div className="title bg left">
+                      <span>Presents</span>
+                    </div>
+                    <div className="title bg right">
+                      <span>An</span>
+                    </div>
+                    <div className="title bg right symposium">
+                      <span>Inter Department Symposium</span>
+                    </div>
+                  </div>
+                  <p className="txt-bottom">Cognissance team</p>
+                </div>
+              </section>
+              <section>
+                <Events />
+              </section>
             </div>
-            <p className="txt-bottom">Cognissance team</p>
-          </div>
-        </section>
-        <section>
-          {/* must use this section for additional components */}
-          <div>
-            <Events />
-          </div>
-          {/* <AuthProvider>
-            <Router>
-              <Routes>
-                <Route path="/" element={<Events />} />
-                <Route path="/register" element={<StudentForm />} />
-              </Routes>
-            </Router>
-          </AuthProvider> */}
-        </section>
-      </div>
-    </div>
+          }
+        />
+
+        {/* Register pages for each event */}
+        <Route path="/register/coding-contest" element={<CodingContest />} />
+        <Route path="/register/hackathon" element={<Hackathon />} />
+        <Route path="/register/debugging-challenge" element={<DebuggingChallenge />} />
+        <Route path="/register/machine-learning-challenge" element={<MachineLearningChallenge />} />
+        <Route path="/register/app-development-challenge" element={<AppDevelopmentChallenge />} />
+
+        <Route path="/register/quiz-bowl" element={<QuizBowl />} />
+        <Route path="/register/public-speaking" element={<PublicSpeaking />} />
+        <Route path="/register/photography-contest" element={<PhotographyContest />} />
+        <Route path="/register/debate-championship" element={<DebateChampionship />} />
+        <Route path="/register/art-and-craft-exhibition" element={<ArtAndCraftExhibition />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -7,7 +7,7 @@ import "../CSS/Events.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const events = [
-  { id: 1, type: "Technical", name: "Coding Contest", description: "...", image: "/media/image.jpeg" },
+  { id: 1, type: "Technical", name: "Coding Contest", description: "...", image: "/media/image.png" },
   { id: 2, type: "Technical", name: "Hackathon", description: "...", image: "/media/image.png" },
   { id: 3, type: "Technical", name: "Debugging Challenge", description: "...", image: "/media/image.png" },
   { id: 4, type: "Technical", name: "Machine Learning Challenge", description: "...", image: "/media/image.png" },

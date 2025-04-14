@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Navbar from "./Navbar";
-import Events from "./Events";
+import Navbar from "./Components/Navbar";
+import Events from "./Components/Events";
+import HeroVideo from "./Components/HeroVideo";
+
 
 // Import individual event registration components
 import CodingContest from "./registrations/CodingContest";
@@ -103,29 +105,7 @@ function AppContent() {
           element={
             <div className="wrapper">
               <section className="video-section">
-                <div className="video-container">
-                  <video src="/media/flower.mp4" loop muted autoPlay></video>
-                </div>
-                <div className="img-container">
-                  <img src="/media/window.png" alt="" className="img" />
-                </div>
-                <div className="text-content">
-                  <div className="img_txt">
-                    <div className="title sm left">
-                      <span>CSEA & CCC</span>
-                    </div>
-                    <div className="title bg left">
-                      <span>Presents</span>
-                    </div>
-                    <div className="title bg right">
-                      <span>An</span>
-                    </div>
-                    <div className="title bg right symposium">
-                      <span>Inter Department Symposium</span>
-                    </div>
-                  </div>
-                  <p className="txt-bottom">Cognissance team</p>
-                </div>
+                <HeroVideo />
               </section>
               <section>
                 <Events />

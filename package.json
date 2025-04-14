@@ -8,12 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gasp": "^0.0.2",
+    "gsap": "^3.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.5.0",
-    "styled-components": "^6.1.14",
-    "gsap": "^3.12.7",
-    "gasp": "^0.0.2"
+    "styled-components": "^6.1.14"
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.4.0",

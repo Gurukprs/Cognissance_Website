@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
-import "./CSS/Events.css";
+import "../CSS/Events.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const events = [
-  { id: 1, type: "Technical", name: "Coding Contest", description: "...", image: "/media/image.png" },
+  { id: 1, type: "Technical", name: "Coding Contest", description: "...", image: "/media/b3.jpeg" },
   { id: 2, type: "Technical", name: "Hackathon", description: "...", image: "/media/image.png" },
   { id: 3, type: "Technical", name: "Debugging Challenge", description: "...", image: "/media/image.png" },
   { id: 4, type: "Technical", name: "Machine Learning Challenge", description: "...", image: "/media/image.png" },

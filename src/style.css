@@ -390,3 +390,35 @@ footer {
 .fa-arrow-right-long {
 	transform: translateX(20px);
 }
+/* 3D-Font */
+.cognissance-3d {
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	text-shadow:
+	  1px 1px 0 #ccc,
+	  2px 2px 0 #bbb,
+	  3px 3px 0 #aaa,
+	  4px 4px 0 #999,
+	  5px 5px 0 #888,
+	  6px 6px 0 #777,
+	  7px 7px 0 #666;
+	/* transform: rotateX(20deg) rotateY(25deg);
+	animation: rotate3d 5s infinite linear; */
+  }
+  .centerizer{
+	top: 0%;       /* Adjust these two values */
+	left: 0%;
+	transform: translate(0%, 700%);
+  }
+  
+  @keyframes rotate3d {
+	0% {
+	  transform: rotateX(20deg) rotateY(0deg);
+	}
+	100% {
+	  transform: rotateX(20deg) rotateY(360deg);
+	}
+  }
+  

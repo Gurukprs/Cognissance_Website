@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./Navbar";
@@ -20,7 +20,10 @@ import ArtAndCraftExhibition from "./registrations/ArtAndCraftExhibition";
 
 import "./style.css";
 
-function App() {
+// 👉 All routing and logic goes here
+function AppContent() {
+  const location = useLocation();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -87,11 +90,14 @@ function App() {
       .to(".wrapper", { x: -window.innerWidth });
   }, []);
 
+  // Show Navbar only if NOT on register pages
+  const showNavbar = !location.pathname.startsWith("/register/");
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {showNavbar && <Navbar />}
+
       <Routes>
-        {/* Home page with hero section and events */}
         <Route
           path="/"
           element={
@@ -128,19 +134,27 @@ function App() {
           }
         />
 
-        {/* Register pages for each event */}
+        {/* Register pages */}
         <Route path="/register/coding-contest" element={<CodingContest />} />
         <Route path="/register/hackathon" element={<Hackathon />} />
         <Route path="/register/debugging-challenge" element={<DebuggingChallenge />} />
         <Route path="/register/machine-learning-challenge" element={<MachineLearningChallenge />} />
         <Route path="/register/app-development-challenge" element={<AppDevelopmentChallenge />} />
-
         <Route path="/register/quiz-bowl" element={<QuizBowl />} />
         <Route path="/register/public-speaking" element={<PublicSpeaking />} />
         <Route path="/register/photography-contest" element={<PhotographyContest />} />
         <Route path="/register/debate-championship" element={<DebateChampionship />} />
         <Route path="/register/art-and-craft-exhibition" element={<ArtAndCraftExhibition />} />
       </Routes>
+    </>
+  );
+}
+
+// 👉 Outer app wraps everything inside <Router>
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

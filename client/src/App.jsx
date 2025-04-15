@@ -114,7 +114,7 @@ function AppContent() {
         />
 
         {/* Register pages */}
-        <Route path="/register/coding-contest" element={<CodingContest />} />
+        <Route path="/register/paper-forge" element={<CodingContest />} />
         <Route path="/register/hackathon" element={<Hackathon />} />
         <Route path="/register/debugging-challenge" element={<DebuggingChallenge />} />
         <Route path="/register/machine-learning-challenge" element={<MachineLearningChallenge />} />

@@ -68,7 +68,7 @@ const Events = () => {
           <EventDetails>
             <EventTitle>{event.name}</EventTitle>
             <EventDescription>{event.description}</EventDescription>
-            <RegisterBtn href="#register">Register Now</RegisterBtn>
+            <RegisterBtn href={`/register/${event.name.toLowerCase().replace(/\s+/g, "-")}`}>Register Now</RegisterBtn>
           </EventDetails>
         </EventCard>
       ))}

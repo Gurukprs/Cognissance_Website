@@ -8,17 +8,17 @@ import HeroVideo from "./Components/HeroVideo";
 
 
 // Import individual event registration components
-import CodingContest from "./registrations/CodingContest";
-import Hackathon from "./registrations/Hackathon";
-import DebuggingChallenge from "./registrations/DebuggingChallenge";
-import MachineLearningChallenge from "./registrations/MachineLearningChallenge";
-import AppDevelopmentChallenge from "./registrations/AppDevelopmentChallenge";
+import CodingContest from "./forms/CodingContest";
+import Hackathon from "./forms/Hackathon";
+import DebuggingChallenge from "./forms/DebuggingChallenge";
+import MachineLearningChallenge from "./forms/MachineLearningChallenge";
+import AppDevelopmentChallenge from "./forms/AppDevelopmentChallenge";
 
-import QuizBowl from "./registrations/QuizBowl";
-import PublicSpeaking from "./registrations/PublicSpeaking";
-import PhotographyContest from "./registrations/PhotographyContest";
-import DebateChampionship from "./registrations/DebateChampionship";
-import ArtAndCraftExhibition from "./registrations/ArtAndCraftExhibition";
+import QuizBowl from "./forms/QuizBowl";
+import PublicSpeaking from "./forms/PublicSpeaking";
+import PhotographyContest from "./forms/PhotographyContest";
+import DebateChampionship from "./forms/DebateChampionship";
+import ArtAndCraftExhibition from "./forms/ArtAndCraftExhibition";
 
 import "./style.css";
 

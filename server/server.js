@@ -10,7 +10,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
+const credentials = JSON.parse(fs.readFileSync(""));
 
 const auth = new google.auth.GoogleAuth({
   credentials,

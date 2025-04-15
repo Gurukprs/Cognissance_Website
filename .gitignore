@@ -24,3 +24,4 @@ credentials.json
 *.njsproj
 *.sln
 *.sw?
+server/credentials.json

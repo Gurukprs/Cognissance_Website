@@ -18,7 +18,7 @@ const CodingContest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/submit", formData);
+      const response = await axios.post("https://cognissance-website.onrender.com/submit", formData);
       alert(response.data.message);
       setFormData({ ...formData, name: "", email: "", rollNumber: "", teamMembers: "" });
     } catch (error) {

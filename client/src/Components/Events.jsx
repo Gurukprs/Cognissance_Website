@@ -1,103 +1,195 @@
+// Events.jsx
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useNavigate } from "react-router-dom";
-import "../CSS/Events.css";
+import styled from "styled-components";
 
+// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// Event data
 const events = [
-  { id: 1, type: "Technical", name: "Coding Contest", description: "...", image: "/media/image.png" },
-  { id: 2, type: "Technical", name: "Hackathon", description: "...", image: "/media/image.png" },
-  { id: 3, type: "Technical", name: "Debugging Challenge", description: "...", image: "/media/image.png" },
-  { id: 4, type: "Technical", name: "Machine Learning Challenge", description: "...", image: "/media/image.png" },
-  { id: 5, type: "Technical", name: "App Development Challenge", description: "...", image: "/media/image.png" },
-  { id: 6, type: "Non-Technical", name: "Quiz Bowl", description: "...", image: "/media/image.png" },
-  { id: 7, type: "Non-Technical", name: "Public Speaking", description: "...", image: "/media/image.png" },
-  { id: 8, type: "Non-Technical", name: "Photography Contest", description: "...", image: "/media/image.png" },
-  { id: 9, type: "Non-Technical", name: "Debate Championship", description: "...", image: "/media/image.png" },
-  { id: 10, type: "Non-Technical", name: "Art and Craft Exhibition", description: "...", image: "/media/image.png" },
+  { id: 1, type: "Technical", name: "Coding Contest", description: "Compete in a timed coding contest and solve algorithmic challenges.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 2, type: "Technical", name: "Hackathon", description: "Develop innovative solutions to real-world problems in teams.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 3, type: "Technical", name: "Debugging Challenge", description: "Test your debugging skills to fix code issues within a time limit.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 4, type: "Technical", name: "Machine Learning Challenge", description: "Build machine learning models to solve data-related problems.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 5, type: "Technical", name: "App Development Challenge", description: "Create an app in a limited time using the latest frameworks and tools.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 6, type: "Non-Technical", name: "Quiz Bowl", description: "Test your knowledge on a wide range of topics in a fast-paced quiz format.", image: "/media/image.png", bgColor: "#8D4B2A" },
+  { id: 7, type: "Non-Technical", name: "Public Speaking", description: "Deliver an impactful speech on a topic of your choice.", image: "/media/image.png", bgColor: "#8D4B2A" },
+  { id: 8, type: "Non-Technical", name: "Photography Contest", description: "Showcase your photography skills with a theme-based competition.", image: "/media/image.png", bgColor: "#8D4B2A" },
+  { id: 9, type: "Non-Technical", name: "Debate Championship", description: "Engage in structured debates on various contemporary issues.", image: "/media/image.png", bgColor: "#8D4B2A" },
+  { id: 10, type: "Non-Technical", name: "Art and Craft Exhibition", description: "Display your creativity and artistic skills through various art forms.", image: "/media/image.png", bgColor: "#8D4B2A" },
 ];
 
 const Events = () => {
   const eventsRef = useRef([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     eventsRef.current.forEach((event, index) => {
-      const direction = index % 2 === 0 ? "-150%" : "150%";
-      const animation = gsap.fromTo(
+      const direction = index % 2 === 0 ? "-150%" : "150%"; // Alternate slide-in direction
+
+      gsap.fromTo(
         event,
         { opacity: 0, x: direction, scale: 0.9 },
         {
           opacity: 1,
           x: 0,
           scale: 1,
-          duration: 2,
+          duration: 1.5,
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: event,
             start: "top 85%",
-            end: "top 15%",
+            end: "top 20%",
             scrub: 1,
             toggleActions: "play none reverse none",
             invalidateOnRefresh: true,
           },
         }
       );
-      event.animation = animation;
     });
-
-    return () => {
-      eventsRef.current.forEach((event) => {
-        if (event.animation) event.animation.kill();
-      });
-    };
   }, []);
 
-  const redirectToForm = (event) => {
-    const eventPath = event.name.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/register/${eventPath}`);
-  };
-
   return (
-    <div className="events-container">
-      <h2 className="section-title">Events</h2>
-      {events.map((event, index) => (
-        <div
+    <EventsContainer>
+      <SectionTitle>Technical Events</SectionTitle>
+      {events.slice(0, 3).map((event, index) => (
+        <EventCard
           key={event.id}
-          className="event-card"
           ref={(el) => (eventsRef.current[index] = el)}
+          style={{
+            "--hover-bg": event.bgColor,
+            "--hover-shadow": event.bgColor + "CC",
+          }}
         >
-          <div className="event-image">
+          <EventImage>
             <img src={event.image} alt={event.name} />
-          </div>
-          <div className="event-details">
-            <h3 className="event-title">{event.name}</h3>
-            <p className="event-description">{event.description}</p>
-
-{/* Open in same page */}
-            {/* <button
-              className="register-btn"
-              onClick={() => redirectToForm(event)}
-            >
-              Register Now
-            </button> */}
-
-            <a
-              className="register-btn"
-              href={`/register/${event.name.toLowerCase().replace(/\s+/g, "-")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Register Now
-            </a>
-
-          </div>
-        </div>
+          </EventImage>
+          <EventDetails>
+            <EventTitle>{event.name}</EventTitle>
+            <EventDescription>{event.description}</EventDescription>
+            <RegisterBtn href="#register">Register Now</RegisterBtn>
+          </EventDetails>
+        </EventCard>
       ))}
-    </div>
+
+      <SectionTitle>Non-Technical Events</SectionTitle>
+      {events.slice(5, 7).map((event, index) => (
+        <EventCard
+          key={event.id}
+          ref={(el) => (eventsRef.current[index + 3] = el)}
+          style={{
+            "--hover-bg": event.bgColor,
+            "--hover-shadow": event.bgColor + "CC",
+          }}
+        >
+          <EventImage>
+            <img src={event.image} alt={event.name} />
+          </EventImage>
+          <EventDetails>
+            <EventTitle>{event.name}</EventTitle>
+            <EventDescription>{event.description}</EventDescription>
+            <RegisterBtn href="#register">Register Now</RegisterBtn>
+          </EventDetails>
+        </EventCard>
+      ))}
+    </EventsContainer>
   );
 };
+
+// Styled Components
+const EventsContainer = styled.div`
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-height: 100vh;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+const EventCard = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    background: var(--hover-bg);
+    transform: scale(1.08);
+    box-shadow: 0px 12px 24px var(--hover-shadow);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
+const EventImage = styled.div`
+  flex: 1;
+  overflow: hidden;
+  border-radius: 15px;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease, filter 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1) contrast(1.2);
+  }
+`;
+
+const EventDetails = styled.div`
+  flex: 2;
+  margin-left: 30px;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+`;
+
+const EventTitle = styled.h3`
+  font-size: 2rem;
+  margin-bottom: 15px;
+`;
+
+const EventDescription = styled.p`
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+`;
+
+const RegisterBtn = styled.a`
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #000;
+  color: #f5f5f5;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #333;
+  }
+`;
 
 export default Events;

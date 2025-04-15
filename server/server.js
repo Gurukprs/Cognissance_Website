@@ -10,7 +10,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const credentials = JSON.parse(fs.readFileSync(""));
+const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
 
 const auth = new google.auth.GoogleAuth({
   credentials,
@@ -19,17 +19,17 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
-const SPREADSHEET_ID = "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU"; // Replace with your spreadsheet ID
-// The ID can be found in the URL of your Google Sheet, between "/d/" and "/edit"
-const SHEET_NAME = "Trial"; // Change this based on your sheet name
-
 app.post("/submit", async (req, res) => {
-  const { name, email, rollNumber, teamMembers } = req.body;
+  const { spreadsheetId, sheetName, name, email, rollNumber, teamMembers } = req.body;
+
+  if (!spreadsheetId || !sheetName) {
+    return res.status(400).json({ success: false, message: "Missing spreadsheetId or sheetName" });
+  }
 
   try {
     await sheets.spreadsheets.values.append({
-      spreadsheetId: SPREADSHEET_ID,
-      range: `${SHEET_NAME}!A:D`,
+      spreadsheetId,
+      range: `${sheetName}!A:D`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       resource: {
@@ -39,7 +39,12 @@ app.post("/submit", async (req, res) => {
 
     res.json({ success: true, message: "Data added successfully!" });
   } catch (error) {
-    console.error("Error adding data:", error);
+    console.error("Error adding data:", {
+      message: error.message,
+      stack: error.stack,
+      responseData: error.response?.data,
+      responseStatus: error.response?.status,
+    });
     res.status(500).json({ success: false, message: "Error adding data" });
   }
 });

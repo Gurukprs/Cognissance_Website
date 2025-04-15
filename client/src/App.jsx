@@ -6,7 +6,6 @@ import Navbar from "./Components/Navbar";
 import Events from "./Components/Events";
 import HeroVideo from "./Components/HeroVideo";
 
-
 // Import individual event registration components
 import CodingContest from "./forms/CodingContest";
 import Hackathon from "./forms/Hackathon";

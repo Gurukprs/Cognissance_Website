@@ -9,13 +9,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Event data
 const events = [
-  { id: 1, type: "Technical", name: "Coding Contest", description: "Compete in a timed coding contest and solve algorithmic challenges.", image: "/media/image.png", bgColor: "#004e92" },
-  { id: 2, type: "Technical", name: "Hackathon", description: "Develop innovative solutions to real-world problems in teams.", image: "/media/image.png", bgColor: "#004e92" },
-  { id: 3, type: "Technical", name: "Debugging Challenge", description: "Test your debugging skills to fix code issues within a time limit.", image: "/media/image.png", bgColor: "#004e92" },
+  { id: 1, type: "Technical", name: "Tech Quest Challenge", description: "Test your tech knowledge and compete with others in our fast-paced quiz event.", image: "/media/techquest.png", bgColor: "#004e92" },
+  { id: 2, type: "Technical", name: "Web Nest", description: "Create visually stunning websites and showcase your design skills in our web design challenge", image: "/media/webnest.jpg", bgColor: "#004e92" },
+  { id: 3, type: "Technical", name: "Brain Fryer", description: "Write code, solve problems, and prove your programming skills in our coding competition", image: "/media/brainfryer.jpg", bgColor: "#004e92" },
   { id: 4, type: "Technical", name: "Machine Learning Challenge", description: "Build machine learning models to solve data-related problems.", image: "/media/image.png", bgColor: "#004e92" },
   { id: 5, type: "Technical", name: "App Development Challenge", description: "Create an app in a limited time using the latest frameworks and tools.", image: "/media/image.png", bgColor: "#004e92" },
-  { id: 6, type: "Non-Technical", name: "Quiz Bowl", description: "Test your knowledge on a wide range of topics in a fast-paced quiz format.", image: "/media/image.png", bgColor: "#8D4B2A" },
-  { id: 7, type: "Non-Technical", name: "Public Speaking", description: "Deliver an impactful speech on a topic of your choice.", image: "/media/image.png", bgColor: "#8D4B2A" },
+  { id: 6, type: "Non-Technical", name: "Paper Forge", description: "It is a paper presentation event to present your research, showcase your ideas, and compete with peers.", image: "/media/paperforge.jpg", bgColor: "#8D4B2A" },
+  { id: 7, type: "Non-Technical", name: "Pitch Project", description: "It is a project presentation event to showcase innovative projects, share solutions, and demonstrate expertise.", image: "/media/pitchproject.jpg", bgColor: "#8D4B2A" },
   { id: 8, type: "Non-Technical", name: "Photography Contest", description: "Showcase your photography skills with a theme-based competition.", image: "/media/image.png", bgColor: "#8D4B2A" },
   { id: 9, type: "Non-Technical", name: "Debate Championship", description: "Engage in structured debates on various contemporary issues.", image: "/media/image.png", bgColor: "#8D4B2A" },
   { id: 10, type: "Non-Technical", name: "Art and Craft Exhibition", description: "Display your creativity and artistic skills through various art forms.", image: "/media/image.png", bgColor: "#8D4B2A" },
@@ -52,8 +52,8 @@ const Events = () => {
 
   return (
     <EventsContainer>
-      <SectionTitle>Technical Events</SectionTitle>
-      {events.slice(0, 3).map((event, index) => (
+      <SectionTitle>PAPER AND PROJECT</SectionTitle>
+      {events.slice(5, 7).map((event, index) => (
         <EventCard
           key={event.id}
           ref={(el) => (eventsRef.current[index] = el)}
@@ -72,12 +72,12 @@ const Events = () => {
           </EventDetails>
         </EventCard>
       ))}
-
-      <SectionTitle>Non-Technical Events</SectionTitle>
-      {events.slice(5, 7).map((event, index) => (
+  
+      <SectionTitle>Technical Events</SectionTitle>
+      {events.slice(0, 3).map((event, index) => (
         <EventCard
           key={event.id}
-          ref={(el) => (eventsRef.current[index + 3] = el)}
+          ref={(el) => (eventsRef.current[index + 2] = el)} // update the index offset to avoid ref conflict
           style={{
             "--hover-bg": event.bgColor,
             "--hover-shadow": event.bgColor + "CC",
@@ -95,8 +95,7 @@ const Events = () => {
       ))}
     </EventsContainer>
   );
-};
-
+}
 // Styled Components
 const EventsContainer = styled.div`
   background-color: #121212;

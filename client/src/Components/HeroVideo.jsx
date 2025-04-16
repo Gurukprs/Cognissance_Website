@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Events from "./Events";
+import "../CSS/HeroVideo.css"; // Import the separate CSS file
 
 const HeroVideo = () => {
   useEffect(() => {
@@ -25,7 +26,7 @@ const HeroVideo = () => {
         title.style.transition = 'opacity 0.6s ease, transform 0.7s ease';
         title.style.opacity = '1';
         title.style.transform = 'translateX(0)';
-      }, 800 + (index * 200));
+      }, 800 + index * 200);
     });
 
     const bottomText = document.querySelector('.txt-bottom');
@@ -47,73 +48,9 @@ const HeroVideo = () => {
         rel="stylesheet"
       />
 
-      {/* Updated shimmer effect with softer golden color transition */}
-      <style>{`
-        .shimmer-text {
-          font-family: 'Cinzel Decorative', cursive;
-          font-weight: 700;
-          color: white; /* Default white color */
-          background: linear-gradient(
-            90deg,
-            #F9F295,
-            #E0AA3E,
-            #FAF398,
-            #B88A44,
-            white,
-            #F9F295
-          );
-          background-size: 400% auto;
-          color: transparent;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: shimmerGold 4s ease-in-out infinite, changeTextColor 3s ease-in-out infinite;
-          text-shadow: 
-            0 0 5px rgba(255, 215, 0, 0.3), 
-            0 0 10px rgba(255, 215, 0, 0.4), 
-            0 0 15px rgba(255, 215, 0, 0.6), /* Soft golden sparkles */
-            0 0 30px rgba(255, 255, 255, 0.2), /* Soft white sparkle */
-            0 0 50px rgba(255, 255, 255, 0.4); /* Larger white sparkle */
-        }
-
-        /* Shimmer animation for the gold effect */
-        @keyframes shimmerGold {
-          0% {
-            background-position: 200% center;
-          }
-          100% {
-            background-position: -200% center;
-          }
-        }
-
-        /* Animation for color transition between white and golden */
-        @keyframes changeTextColor {
-          0% {
-            color: white;
-          }
-          50% {
-            color: #F9F295; /* Soft golden color */
-          }
-          100% {
-            color: white;
-          }
-        }
-
-        /* Wrapper for centering the text */
-        .cognissance-wrapper {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 100%;
-          position: relative;
-        }
-      `}</style>
-
       <section className="video-section">
         <div className="video-container">
           <div className="centerizer">
-            {/* Added wrapper for center positioning */}
             <div className="cognissance-wrapper">
               <h1 className="cognissance-3d shimmer-text">
                 COGNISSANCE'25

@@ -57,31 +57,3 @@
   position: relative;
 }
 
-.window-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 2rem 0;
-  /* height: 100vh; or use min-height if needed */
-  overflow: hidden;
-  position: relative;
-}
-
-.window-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-@media (max-width: 768px) {
-  .window-container {
-    padding: 1rem; /* optional */
-  }
-
-  .window-img {
-    width: 100%;
-    object-fit: cover; /* or contain if it works better */
-  }
-}

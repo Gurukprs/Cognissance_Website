@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import '../style.css';
 
 function Navbar() {
   const [timeLeft, setTimeLeft] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const targetDate = new Date('April 30, 2025 12:00:00');
@@ -23,27 +25,36 @@ function Navbar() {
     };
 
     const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer(); // initial call
+    updateTimer();
 
-    return () => clearInterval(timerInterval); // cleanup
+    return () => clearInterval(timerInterval);
   }, []);
 
   return (
-    <div>
-      <header>
-        <nav className="navbar">
-          <span> </span>
-          <div className="logo">CSEA & CCC</div>
-          <ul className="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Schedule</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <div className="btn">{timeLeft}</div>
-        </nav>
-      </header>
-    </div>
+    <header>
+      <nav className="navbar">
+  <span></span>
+  
+  <div className="logo">CSEA & CCC</div>
+
+  {/* Hamburger appears only on mobile */}
+  <div className="hamburger" onClick={() => setMenuOpen(prev => !prev)}>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <div className="btn">{timeLeft}</div>
+</nav>
+
+    </header>
   );
 }
 

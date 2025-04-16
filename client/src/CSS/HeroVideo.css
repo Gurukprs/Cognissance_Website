@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+.shimmer-text {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    #F9F295,
+    #E0AA3E,
+    #FAF398,
+    #B88A44,
+    white,
+    #F9F295
+  );
+  background-size: 400% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerGold 4s ease-in-out infinite, changeTextColor 3s ease-in-out infinite;
+  text-shadow: 
+    0 0 5px rgba(255, 215, 0, 0.3), 
+    0 0 10px rgba(255, 215, 0, 0.4), 
+    0 0 15px rgba(255, 215, 0, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.2),
+    0 0 50px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes changeTextColor {
+  0% {
+    color: white;
+  }
+  50% {
+    color: #F9F295;
+  }
+  100% {
+    color: white;
+  }
+}
+
+.cognissance-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.window-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+  /* height: 100vh; or use min-height if needed */
+  overflow: hidden;
+  position: relative;
+}
+
+.window-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .window-container {
+    padding: 1rem; /* optional */
+  }
+
+  .window-img {
+    width: 100%;
+    object-fit: cover; /* or contain if it works better */
+  }
+}

@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import styled from "styled-components";
+import '../CSS/Events.css';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -26,8 +26,7 @@ const Events = () => {
 
   useEffect(() => {
     eventsRef.current.forEach((event, index) => {
-      const direction = index % 2 === 0 ? "-150%" : "150%"; // Alternate slide-in direction
-
+      const direction = index % 2 === 0 ? "-150%" : "150%";
       gsap.fromTo(
         event,
         { opacity: 0, x: direction, scale: 0.9 },
@@ -51,144 +50,52 @@ const Events = () => {
   }, []);
 
   return (
-    <EventsContainer>
-      <SectionTitle>PAPER AND PROJECT</SectionTitle>
+    <div className="events-container">
+      <h2 className="section-title">PAPER AND PROJECT</h2>
       {events.slice(5, 7).map((event, index) => (
-        <EventCard
+        <div
           key={event.id}
+          className="event-card"
           ref={(el) => (eventsRef.current[index] = el)}
           style={{
             "--hover-bg": event.bgColor,
             "--hover-shadow": event.bgColor + "CC",
           }}
         >
-          <EventImage>
+          <div className="event-image">
             <img src={event.image} alt={event.name} />
-          </EventImage>
-          <EventDetails>
-            <EventTitle>{event.name}</EventTitle>
-            <EventDescription>{event.description}</EventDescription>
-            <RegisterBtn href={`/register/${event.name.toLowerCase().replace(/\s+/g, "-")}`}>Register Now</RegisterBtn>
-          </EventDetails>
-        </EventCard>
+          </div>
+          <div className="event-details">
+            <h3 className="event-title">{event.name}</h3>
+            <p className="event-description">{event.description}</p>
+            <a className="register-btn" href={`/register/${event.name.toLowerCase().replace(/\s+/g, "-")}`}>Register Now</a>
+          </div>
+        </div>
       ))}
-  
-      <SectionTitle>Technical Events</SectionTitle>
+
+      <h2 className="section-title">Technical Events</h2>
       {events.slice(0, 3).map((event, index) => (
-        <EventCard
+        <div
           key={event.id}
-          ref={(el) => (eventsRef.current[index + 2] = el)} // update the index offset to avoid ref conflict
+          className="event-card"
+          ref={(el) => (eventsRef.current[index + 2] = el)}
           style={{
             "--hover-bg": event.bgColor,
             "--hover-shadow": event.bgColor + "CC",
           }}
         >
-          <EventImage>
+          <div className="event-image">
             <img src={event.image} alt={event.name} />
-          </EventImage>
-          <EventDetails>
-            <EventTitle>{event.name}</EventTitle>
-            <EventDescription>{event.description}</EventDescription>
-            <RegisterBtn href="#register">Register Now</RegisterBtn>
-          </EventDetails>
-        </EventCard>
+          </div>
+          <div className="event-details">
+            <h3 className="event-title">{event.name}</h3>
+            <p className="event-description">{event.description}</p>
+            <a className="register-btn" href="#register">Register Now</a>
+          </div>
+        </div>
       ))}
-    </EventsContainer>
+    </div>
   );
-}
-// Styled Components
-const EventsContainer = styled.div`
-  background-color: #121212;
-  color: #f5f5f5;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  min-height: 100vh;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
-const EventCard = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #1e1e1e;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-
-  &:hover {
-    background: var(--hover-bg);
-    transform: scale(1.08);
-    box-shadow: 0px 12px 24px var(--hover-shadow);
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
-`;
-
-const EventImage = styled.div`
-  flex: 1;
-  overflow: hidden;
-  border-radius: 15px;
-
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.5s ease, filter 0.4s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.1) contrast(1.2);
-  }
-`;
-
-const EventDetails = styled.div`
-  flex: 2;
-  margin-left: 30px;
-
-  @media (max-width: 768px) {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-`;
-
-const EventTitle = styled.h3`
-  font-size: 2rem;
-  margin-bottom: 15px;
-`;
-
-const EventDescription = styled.p`
-  font-size: 1.4rem;
-  margin-bottom: 25px;
-`;
-
-const RegisterBtn = styled.a`
-  display: inline-block;
-  padding: 15px 30px;
-  background-color: #000;
-  color: #f5f5f5;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #333;
-  }
-`;
+};
 
 export default Events;

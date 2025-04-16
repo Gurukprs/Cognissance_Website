@@ -7,17 +7,11 @@ import Events from "./Components/Events";
 import HeroVideo from "./Components/HeroVideo";
 
 // Import individual event registration components
-import CodingContest from "./forms/CodingContest";
-import Hackathon from "./forms/Hackathon";
-import DebuggingChallenge from "./forms/DebuggingChallenge";
-import MachineLearningChallenge from "./forms/MachineLearningChallenge";
-import AppDevelopmentChallenge from "./forms/AppDevelopmentChallenge";
-
-import QuizBowl from "./forms/QuizBowl";
-import PublicSpeaking from "./forms/PublicSpeaking";
-import PhotographyContest from "./forms/PhotographyContest";
-import DebateChampionship from "./forms/DebateChampionship";
-import ArtAndCraftExhibition from "./forms/ArtAndCraftExhibition";
+import PaperForge from "./forms/PaperForge";;
+import PitchProject from "./forms/PitchProject";
+import WebNest from "./forms/WebNest";
+import BrainFryer from "./forms/BrainFryer";
+import TechQuest from "./forms/TechQuest";
 
 import "./style.css";
 
@@ -114,16 +108,11 @@ function AppContent() {
         />
 
         {/* Register pages */}
-        <Route path="/register/paper-forge" element={<CodingContest />} />
-        <Route path="/register/hackathon" element={<Hackathon />} />
-        <Route path="/register/debugging-challenge" element={<DebuggingChallenge />} />
-        <Route path="/register/machine-learning-challenge" element={<MachineLearningChallenge />} />
-        <Route path="/register/app-development-challenge" element={<AppDevelopmentChallenge />} />
-        <Route path="/register/quiz-bowl" element={<QuizBowl />} />
-        <Route path="/register/public-speaking" element={<PublicSpeaking />} />
-        <Route path="/register/photography-contest" element={<PhotographyContest />} />
-        <Route path="/register/debate-championship" element={<DebateChampionship />} />
-        <Route path="/register/art-and-craft-exhibition" element={<ArtAndCraftExhibition />} />
+        <Route path="/register/paper-forge" element={<PaperForge />} />
+        <Route path="/register/pitch-project" element={<PitchProject />} />
+        <Route path="/register/brain-fryer" element={<BrainFryer />} />
+        <Route path="/register/tech-quest-challenge" element={<TechQuest />} />
+        <Route path="/register/web-nest" element={<WebNest />} />
       </Routes>
     </>
   );

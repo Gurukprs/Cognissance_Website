@@ -90,7 +90,7 @@ const Events = () => {
           <div className="event-details">
             <h3 className="event-title">{event.name}</h3>
             <p className="event-description">{event.description}</p>
-            <a className="register-btn" href="#register">Register Now</a>
+            <a className="register-btn" href={`/register/${event.name.toLowerCase().replace(/\s+/g, "-")}`}>Register Now</a>
           </div>
         </div>
       ))}

@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./css/TechQuest.css"; // Import the CSS file for styling
 
 const TechQuest = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     rollNumber: "",
-    teamMembers: "",
+    dept: "",
+    phoneNumber: "",
+    t1Name: "",
+    t1RollNumber: "",
+    t1Dept: "",
+    t1PhoneNumber: "",
+    t1Mail: "",
+    teamName: "",
     spreadsheetId: "1sEV31jYqeQovNCb1Ryr4n5XpivyWEMGMNd1Yit6ydHU",  // Change as needed
     sheetName: "Main"  // Change as needed
   });
@@ -17,14 +25,20 @@ const TechQuest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // ✅ Format the data to match the backend expectation
+      // ✅ Format the data as an array for Google Sheets
       const data = [
+        formData.teamName,
         formData.name,
-        formData.email,
         formData.rollNumber,
-        formData.teamMembers
+        formData.dept,
+        formData.email,
+        formData.phoneNumber,
+        formData.t1Name,
+        formData.t1RollNumber,
+        formData.t1Dept,
+        formData.t1PhoneNumber,
+        formData.t1Mail,
       ];
 
       const payload = {
@@ -35,9 +49,7 @@ const TechQuest = () => {
 
       const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
-
-      // ✅ Clear form after successful submission
-      setFormData({ ...formData, name: "", email: "", rollNumber: "", teamMembers: "" });
+      setFormData({ ...formData, teamName:"", name: "", rollNumber: "",dept: "", email: "",t1Name:"",t1RollNumber:"",t1Dept:"",t1Mail:"",t1PhoneNumber:""});
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form");
@@ -46,12 +58,37 @@ const TechQuest = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-      <input type="text" name="rollNumber" placeholder="Roll Number" value={formData.rollNumber} onChange={handleChange} required />
-      <input type="text" name="teamMembers" placeholder="Team Members" value={formData.teamMembers} onChange={handleChange} required />
-      <button type="submit">Submit</button>
-    </form>
+  {/* Team Info */}
+  <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
+
+  {/* Leader Info */}
+  <input type="text" name="name" placeholder="Leader Name" value={formData.name} onChange={handleChange} required />
+  <input type="text" name="rollNumber" placeholder="Leader Roll Number" value={formData.rollNumber} onChange={handleChange} required />
+  <select name="dept" value={formData.dept} onChange={handleChange} required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+    {/* Add more as needed */}
+  </select>
+  <input type="email" name="email" placeholder="Leader Email" value={formData.email} onChange={handleChange} required />
+  <input type="text" name="phoneNumber" placeholder="Leader Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
+
+  {/* Teammate 1 Info */}
+  <input type="text" name="t1Name" placeholder="Teammate Name" value={formData.t1Name} onChange={handleChange} required />
+  <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+  </select>
+  <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange} required />
+  <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />
+
+  <button type="submit">Submit</button>
+</form>
+
   );
 };
 

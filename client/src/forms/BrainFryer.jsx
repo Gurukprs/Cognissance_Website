@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./css/BrainFryer.css"; // Import the CSS file for styling
 
-const BrainFryer = () => {
+const TechQuest = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     rollNumber: "",
-    phoneNumber: "",
     dept: "",
-    spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",  // Change as needed
-    sheetName: "Main"  // Change as needed
-    // spreadsheetId: "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU",  // Change as needed
-    // sheetName: "Trial"  // Change as needed
+    phoneNumber: "",
+    t1Name: "",
+    t1RollNumber: "",
+    t1Dept: "",
+    t1PhoneNumber: "",
+    t1Mail: "",
+    teamName: "",
+    // spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",  // Change as needed
+    // sheetName: "Main"  // Change as needed
+    spreadsheetId: "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU",
+    sheetName: "Trial" 
   });
 
   const handleChange = (e) => {
@@ -21,24 +27,22 @@ const BrainFryer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(formData.phoneNumber)) {
-      alert("Phone number must be exactly 10 digits.");
-      return;
-    }
-
     try {
-      // ✅ Build the data array in order of submission
+      // ✅ Format the data as an array for Google Sheets
       const data = [
+        formData.teamName,
         formData.name,
         formData.rollNumber,
         formData.dept,
         formData.email,
-        formData.phoneNumber
+        formData.phoneNumber,
+        formData.t1Name,
+        formData.t1RollNumber,
+        formData.t1Dept,
+        formData.t1PhoneNumber,
+        formData.t1Mail,
       ];
 
-      // ✅ Prepare payload for dynamic backend
       const payload = {
         spreadsheetId: formData.spreadsheetId,
         sheetName: formData.sheetName,
@@ -47,8 +51,7 @@ const BrainFryer = () => {
 
       const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
-
-      setFormData({ ...formData, name: "", rollNumber: "", dept: "", email: "", phoneNumber: "" });
+      setFormData({ ...formData, teamName:"", name: "", rollNumber: "",dept: "", email: "",t1Name:"",t1RollNumber:"",t1Dept:"",t1Mail:"",t1PhoneNumber:""});
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form");
@@ -57,21 +60,38 @@ const BrainFryer = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <input type="text" name="rollNumber" placeholder="Roll Number" value={formData.rollNumber} onChange={handleChange} required />
-      <select name="dept" value={formData.dept} onChange={handleChange} required>
-        <option value="">Select Department</option>
-        <option value="CSE">CSE</option>
-        <option value="EEE">EEE</option>
-        <option value="IT">IT</option>
-        {/* Add more options as needed */}
-      </select>
+  {/* Team Info */}
+  <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
 
-      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-      <input type="number" name="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
-      <button type="submit">Submit</button>
-    </form>
+  {/* Leader Info */}
+  <input type="text" name="name" placeholder="Leader Name" value={formData.name} onChange={handleChange} required />
+  <input type="text" name="rollNumber" placeholder="Leader Roll Number" value={formData.rollNumber} onChange={handleChange} required />
+  <select name="dept" value={formData.dept} onChange={handleChange} required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+    {/* Add more as needed */}
+  </select>
+  <input type="email" name="email" placeholder="Leader Email" value={formData.email} onChange={handleChange} required />
+  <input type="text" name="phoneNumber" placeholder="Leader Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
+
+  {/* Teammate 1 Info */}
+  <input type="text" name="t1Name" placeholder="Teammate Name" value={formData.t1Name} onChange={handleChange} required />
+  <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+  </select>
+  <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange} required />
+  <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />
+
+  <button type="submit">Submit</button>
+</form>
+
   );
 };
 
-export default BrainFryer;
+export default TechQuest;

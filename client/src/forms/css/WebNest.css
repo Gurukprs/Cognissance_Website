@@ -74,4 +74,47 @@ form {
   select:focus {
     border-color: #4a90e2;
   }
+  .form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+  }
+  
+  .form-section:last-of-type {
+    border-bottom: none;
+  }
+  
+  .form-section h2 {
+    font-size: 1.2rem;
+    color: #4fc3f7;
+    margin-bottom: 1rem;
+  }
+  .form-section {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .form-section::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #444;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .form-section:last-of-type::after {
+    display: none;
+  }
+  
+  .form-section h2 {
+    font-size: 1.1rem;
+    color: #4fc3f7;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
   

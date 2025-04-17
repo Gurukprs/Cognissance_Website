@@ -19,21 +19,50 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
-app.post("/submit", async (req, res) => {
-  const { spreadsheetId, sheetName, name, email, rollNumber, teamMembers } = req.body;
+// app.post("/submit", async (req, res) => {
+//   const { spreadsheetId, sheetName, name, email, rollNumber, teamMembers } = req.body;
 
-  if (!spreadsheetId || !sheetName) {
-    return res.status(400).json({ success: false, message: "Missing spreadsheetId or sheetName" });
+//   if (!spreadsheetId || !sheetName) {
+//     return res.status(400).json({ success: false, message: "Missing spreadsheetId or sheetName" });
+//   }
+
+//   try {
+//     await sheets.spreadsheets.values.append({
+//       spreadsheetId,
+//       range: `${sheetName}!A:D`,
+//       valueInputOption: "RAW",
+//       insertDataOption: "INSERT_ROWS",
+//       resource: {
+//         values: [[name, email, rollNumber, teamMembers]],
+//       },
+//     });
+
+//     res.json({ success: true, message: "Data added successfully!" });
+//   } catch (error) {
+//     console.error("Error adding data:", {
+//       message: error.message,
+//       stack: error.stack,
+//       responseData: error.response?.data,
+//       responseStatus: error.response?.status,
+//     });
+//     res.status(500).json({ success: false, message: "Error adding data" });
+//   }
+// });
+app.post("/submit", async (req, res) => {
+  const { spreadsheetId, sheetName, data } = req.body;
+
+  if (!spreadsheetId || !sheetName || !Array.isArray(data)) {
+    return res.status(400).json({ success: false, message: "Missing or invalid data" });
   }
 
   try {
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: `${sheetName}!A:D`,
+      range: `${sheetName}`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       resource: {
-        values: [[name, email, rollNumber, teamMembers]],
+        values: [data], // single row of data
       },
     });
 
@@ -48,5 +77,6 @@ app.post("/submit", async (req, res) => {
     res.status(500).json({ success: false, message: "Error adding data" });
   }
 });
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,120 +1,217 @@
-/* BrainFryer.css */
+/* ====== Body Background Animation ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #4f4f4f, #2e2e2e, #121212);
+  background-size: 600% 600%;
+  animation: backgroundShift 20s ease infinite;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: url('https://cdn.jsdelivr.net/gh/tobiasahlin/mitxela.com/cursor1.png'), auto; /* Custom cursor */
+}
 
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ====== Form Styling with Entry Animation and Glow ====== */
 form {
-    background-color: #1e1e1e;
-    padding: 2rem;
-    border-radius: 12px;
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-  }
-  
-  input {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background-color: #2a2a2a;
-    color: #fff;
-    outline: none;
-  }
-  
-  input::placeholder {
-    color: #aaa;
-  }
-  
-  input[type=number]::-webkit-outer-spin-button,
-  input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  input[type=number] {
-    appearance: textfield;
-    /* -moz-appearance: textfield; */
-  }
-  
-  button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a90e2;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #357ABD;
-  }
+  background: rgba(30, 30, 30, 0.9);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.2), 0 0 40px rgba(74, 144, 226, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+  transition: transform 0.3s ease-in-out;
+}
 
-  select {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background-color: #2a2a2a;
-    color: #fff;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 20px;
+form:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(74, 144, 226, 0.4), 0 0 60px rgba(74, 144, 226, 0.2);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Optional: to add spacing so text doesn't overlap with arrow */
-  select:focus {
-    border-color: #4a90e2;
+}
+
+/* ====== Input Fields ====== */
+input {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Remove number arrows */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  appearance: textfield;
+}
+
+/* ====== Glowing Button with Pulse ====== */
+button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+  animation: pulse 2.5s infinite;
+}
+
+button:hover {
+  background-color: #357ABD;
+  transform: translateY(-2px);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #4a90e2, #7fb3ff, #4a90e2);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+button:hover::after {
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4);
   }
-  .form-section {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #333;
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
   }
-  
-  .form-section:last-of-type {
-    border-bottom: none;
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
   }
-  
-  .form-section h2 {
-    font-size: 1.2rem;
-    color: #4fc3f7;
-    margin-bottom: 1rem;
-  }
-  .form-section {
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 1.5rem;
-  }
-  
-  .form-section::after {
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: #444;
-    opacity: 0.6;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .form-section:last-of-type::after {
-    display: none;
-  }
-  
-  .form-section h2 {
-    font-size: 1.1rem;
-    color: #4fc3f7;
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
-  
+}
+
+/* ====== Select Dropdown ====== */
+select {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  transition: 0.3s;
+}
+
+select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+}
+
+/* ====== Cursor Movement Highlight ====== */
+* {
+  cursor: none;
+  position: relative;
+}
+
+button:hover, input:hover, select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.8), 0 0 40px rgba(74, 144, 226, 0.3);
+}
+
+button:active, input:active, select:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.7);
+}
+
+body {
+  cursor: url('https://cdn.jsdelivr.net/gh/tobiasahlin/mitxela.com/cursor1.png'), auto; /* Custom cursor */
+}
+
+button, input, select {
+  cursor: pointer;
+}
+
+/* Custom cursor interaction effect */
+* {
+  transition: transform 0.1s ease;
+}
+
+button:hover, input:hover, select:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.6), 0 0 40px rgba(74, 144, 226, 0.2);
+}
+
+button:active, input:active, select:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+/* Cursor highlight on hover */
+button:hover, input:hover, select:hover {
+  cursor: pointer;
+  outline: 2px solid #4a90e2;
+  outline-offset: 4px;
+}
+
+/* ====== Optional Scrollbar Styling ====== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a90e2;
+  border-radius: 10px;
+}

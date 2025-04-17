@@ -18,7 +18,21 @@ const WebNest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://cognissance-website.onrender.com/submit", formData);
+      // ✅ Format the data as an array for Google Sheets
+      const data = [
+        formData.name,
+        formData.email,
+        formData.rollNumber,
+        formData.teamMembers
+      ];
+
+      const payload = {
+        spreadsheetId: formData.spreadsheetId,
+        sheetName: formData.sheetName,
+        data
+      };
+
+      const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
       setFormData({ ...formData, name: "", email: "", rollNumber: "", teamMembers: "" });
     } catch (error) {

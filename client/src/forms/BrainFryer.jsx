@@ -9,10 +9,10 @@ const BrainFryer = () => {
     rollNumber: "",
     phoneNumber: "",
     dept: "",
-    // spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",  // Change as needed
-    // sheetName: "Main"  // Change as needed
-    spreadsheetId: "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU",  // Change as needed
-    sheetName: "Trial"  // Change as needed
+    spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",  // Change as needed
+    sheetName: "Main"  // Change as needed
+    // spreadsheetId: "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU",  // Change as needed
+    // sheetName: "Trial"  // Change as needed
   });
 
   const handleChange = (e) => {

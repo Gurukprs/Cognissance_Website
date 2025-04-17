@@ -17,9 +17,27 @@ const PitchProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post("https://cognissance-website.onrender.com/submit", formData);
+      // ✅ Convert form values into a data array to match backend format
+      const data = [
+        formData.name,
+        formData.email,
+        formData.rollNumber,
+        formData.teamMembers
+      ];
+
+      // ✅ Send updated structure to server
+      const payload = {
+        spreadsheetId: formData.spreadsheetId,
+        sheetName: formData.sheetName,
+        data
+      };
+
+      const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
+
+      // ✅ Reset form fields
       setFormData({ ...formData, name: "", email: "", rollNumber: "", teamMembers: "" });
     } catch (error) {
       console.error("Error submitting form:", error);

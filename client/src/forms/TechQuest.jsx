@@ -17,9 +17,26 @@ const TechQuest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post("https://cognissance-website.onrender.com/submit", formData);
+      // ✅ Format the data to match the backend expectation
+      const data = [
+        formData.name,
+        formData.email,
+        formData.rollNumber,
+        formData.teamMembers
+      ];
+
+      const payload = {
+        spreadsheetId: formData.spreadsheetId,
+        sheetName: formData.sheetName,
+        data
+      };
+
+      const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
+
+      // ✅ Clear form after successful submission
       setFormData({ ...formData, name: "", email: "", rollNumber: "", teamMembers: "" });
     } catch (error) {
       console.error("Error submitting form:", error);

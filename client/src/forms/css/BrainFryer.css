@@ -1,72 +1,76 @@
-/* WebNest.css */
+/* BrainFryer.css */
 
-body {
-  background-color: #121212;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.form-container {
-  max-width: 600px;
-  margin: 2rem auto;
+form {
+  background-color: #1e1e1e;
   padding: 2rem;
-  background-color: #1f1f1f;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-.form-section {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #333;
-}
-
-.form-section:last-of-type {
-  border-bottom: none;
-}
-
-.form-section h2 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #4a90e2;
-}
-
-input, select {
-  width: 100%;
+input {
   padding: 10px 15px;
-  margin-bottom: 0.75rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #444;
+  border: 1px solid #333;
   background-color: #2a2a2a;
   color: #fff;
   outline: none;
 }
 
-input::placeholder, select option {
+input::placeholder {
   color: #aaa;
 }
 
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 12px;
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  /* -moz-appearance: textfield; */
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  background-color: #4a90e2;
+  padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  color: white;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #357ABD;
+}
+
+select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 20px;
+}
+
+/* Optional: to add spacing so text doesn't overlap with arrow */
+select:focus {
+  border-color: #4a90e2;
 }

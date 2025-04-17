@@ -108,7 +108,7 @@ const WebNest = () => {
   <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange} required />
   <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange} required />
 
-  <button type="submit">Submit</button>
+  <button type="submit"><span>Submit</span></button>
 </form>
 
   );

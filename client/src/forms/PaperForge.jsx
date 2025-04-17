@@ -20,6 +20,11 @@ const PaperForge = () => {
     t2Mail: "",
     t1Mail: "",
     teamName: "",
+    t3Name: "",
+    t3RollNumber: "",
+    t3Dept: "",
+    t3PhoneNumber: "",
+    t3Mail: "",
     spreadsheetId: "1UXh7NlQpzfJ0zWvdBKc6Xs0DA3vcNs1l8ZJ0Z-OL17c",  // Change as needed
     sheetName: "Main"  // Change as needed
   });
@@ -49,6 +54,11 @@ const PaperForge = () => {
         formData.t2Dept,
         formData.t2PhoneNumber,
         formData.t2Mail,
+        formData.t3Name,
+        formData.t3RollNumber,
+        formData.t3Dept,
+        formData.t3PhoneNumber,
+        formData.t3Mail,
       ];
 
       const payload = {
@@ -85,28 +95,40 @@ const PaperForge = () => {
   <input type="text" name="phoneNumber" placeholder="Leader Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
 
   {/* Teammate 1 Info */}
-  <input type="text" name="t1Name" placeholder="Teammate 1 Name" value={formData.t1Name} onChange={handleChange} required />
-  <input type="text" name="t1RollNumber" placeholder="Teammate 1 Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
-  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+  <input type="text" name="t1Name" placeholder="Teammate 1 Name" value={formData.t1Name} onChange={handleChange}  />
+  <input type="text" name="t1RollNumber" placeholder="Teammate 1 Roll Number" value={formData.t1RollNumber} onChange={handleChange}  />
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} >
     <option value="">Select Department</option>
     <option value="CSE">CSE</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
   </select>
-  <input type="email" name="t1Mail" placeholder="Teammate 1 Email" value={formData.t1Mail} onChange={handleChange} required />
-  <input type="text" name="t1PhoneNumber" placeholder="Teammate 1 Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />
+  <input type="email" name="t1Mail" placeholder="Teammate 1 Email" value={formData.t1Mail} onChange={handleChange}  />
+  <input type="text" name="t1PhoneNumber" placeholder="Teammate 1 Phone Number" value={formData.t1PhoneNumber} onChange={handleChange}  />
 
   {/* Teammate 2 Info */}
-  <input type="text" name="t2Name" placeholder="Teammate 2 Name" value={formData.t2Name} onChange={handleChange} required />
-  <input type="text" name="t2RollNumber" placeholder="Teammate 2 Roll Number" value={formData.t2RollNumber} onChange={handleChange} required />
-  <select name="t2Dept" value={formData.t2Dept} onChange={handleChange} required>
+  <input type="text" name="t2Name" placeholder="Teammate 2 Name" value={formData.t2Name} onChange={handleChange}  />
+  <input type="text" name="t2RollNumber" placeholder="Teammate 2 Roll Number" value={formData.t2RollNumber} onChange={handleChange}  />
+  <select name="t2Dept" value={formData.t2Dept} onChange={handleChange} >
     <option value="">Select Department</option>
     <option value="CSE">CSE</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
   </select>
-  <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange} required />
-  <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange} required />
+  <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange}  />
+  <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange}  />
+
+  {/* Teammate 3 Info */}
+  <input type="text" name="t3Name" placeholder="Teammate 3 Name" value={formData.t3Name} onChange={handleChange}  />
+  <input type="text" name="t3RollNumber" placeholder="Teammate 3 Roll Number" value={formData.t3RollNumber} onChange={handleChange}  />
+  <select name="t2Dept" value={formData.t3Dept} onChange={handleChange} required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+  </select>
+  <input type="email" name="t3Mail" placeholder="Teammate 3 Email" value={formData.t3Mail} onChange={handleChange} />
+  <input type="text" name="t3PhoneNumber" placeholder="Teammate 3 Phone Number" value={formData.t3PhoneNumber} onChange={handleChange}  />
 
   <button type="submit">Submit</button>
 </form>

@@ -82,3 +82,10 @@
   font-size: 3.5rem;
   text-align: center;
 }
+
+.img-container{
+  z-index: 2;
+}
+.text-content{
+  z-index: 3;
+}

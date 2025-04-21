@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./css/PitchProject.css"; // Import the CSS file for styling
+import "./css/form.css"; // Import the CSS file for styling
 
 const PitchProject = () => {
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./css/PaperForge.css"; // Import the CSS file for styling
+import "./css/form.css"; // Import the CSS file for styling
 
 const PaperForge = () => {
   const [formData, setFormData] = useState({

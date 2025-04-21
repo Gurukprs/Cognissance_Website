@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./css/TechQuest.css"; // Import the CSS file for styling
+import "./css/form.css"; // Import the CSS file for styling
 
 const TechQuest = () => {
   const [formData, setFormData] = useState({

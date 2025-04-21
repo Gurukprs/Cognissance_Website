@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./Components/Navbar";
 import Laptop from "./Laptop";
-
 
 // Import individual event registration components
 import PaperForge from "./forms/PaperForge";;

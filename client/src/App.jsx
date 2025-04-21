@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Navbar from "./Components/Navbar";
 import Laptop from "./Laptop";
 
+
 // Import individual event registration components
 import PaperForge from "./forms/PaperForge";;
 import PitchProject from "./forms/PitchProject";

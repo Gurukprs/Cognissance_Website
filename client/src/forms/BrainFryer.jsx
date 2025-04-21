@@ -59,6 +59,27 @@ const TechQuest = () => {
   };
 
   return (
+    <>
+  <div className="event-description">
+  <h2>TechQuest - Brain Fryer</h2>
+  <p>
+    Brain Fryer is a solo event where your thinking and coding skills are put to the test.
+    <br /><br />
+    You will face a few aptitude questions. After solving each one, a coding question will be unlocked. You must solve the aptitude question to move on.
+    <br /><br />
+    <strong>Event Format:</strong>
+    <ul>
+      <li>Solo participation</li>
+      <li>Aptitude Questions + Coding Questions</li>
+      <li>Aptitude questions unlock the coding ones</li>
+      <li>No skipping allowed</li>
+    </ul>
+    <br />
+    Test your brain, crack the logic, and show your coding skills!
+  </p>
+</div>
+
+
     <form onSubmit={handleSubmit}>
   {/* Team Info */}
   <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
@@ -90,7 +111,7 @@ const TechQuest = () => {
 
   <button type="submit">Submit</button>
 </form>
-
+</>
   );
 };
 

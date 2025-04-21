@@ -67,6 +67,38 @@ const PitchProject = () => {
   };
 
   return (
+    <>
+    <div className="event-description">
+  <h2>Project Pitch</h2>
+
+  <p>
+    Participants are encouraged to present innovative and research‑based projects on any one of the following themes:
+  </p>
+  <ul>
+    <li>AI</li>
+    <li>IoT</li>
+    <li>Web</li>
+    <li>Others</li>
+  </ul>
+
+  <p><strong>Project Guidelines:</strong></p>
+  <ul>
+    <li>Maximum Members in Team: 3</li>
+    <li>Duration: 5 minutes (4 + 1 Q&A)</li>
+  </ul>
+
+  <p><strong>Evaluation Criteria:</strong></p>
+  <ul>
+    <li><strong>Innovation</strong> – Originality and uniqueness of your idea.</li>
+    <li><strong>Clarity</strong> – Clear explanation of concepts and objectives.</li>
+    <li><strong>Technical Depth</strong> – Sound methodology, tools, and research.</li>
+  </ul>
+
+  <p>
+    Be ready to pitch your prototype, research, or simulation with confidence.
+  </p>
+</div>
+
     <form onSubmit={handleSubmit}>
   {/* Team Info */}
   <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
@@ -110,7 +142,7 @@ const PitchProject = () => {
 
   <button type="submit">Submit</button>
 </form>
-
+</>
   );
 };
 

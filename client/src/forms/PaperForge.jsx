@@ -77,6 +77,38 @@ const PaperForge = () => {
   };
 
   return (
+    <>
+    <div className="event-description">
+  <h2>PAPER FORGE</h2>
+  <p>
+    Participants are invited to present their papers on any one of the following topics:
+  </p>
+
+  <p>
+    <strong>Event Type:</strong> Team (max 4 members)
+  </p>
+
+  <p><strong>Topics:</strong></p>
+  <ul>
+    <li>Smart Grid Technology – Renewable Energy and Efficient Power Distribution</li>
+    <li>AI Powered Cyber Security</li>
+    <li>3D Printing &amp; Complex Mechanical Components</li>
+    <li>Nano Encapsulation Technique in Food Preservation</li>
+    <li>Sustainable and Green Technologies for a Smarter Future</li>
+  </ul>
+
+  <p><strong>Guidelines:</strong></p>
+  <ul>
+    <li>Maximum of 8 slides (KEC format)</li>
+    <li>Presentation time: 7 minutes</li>
+    <li>Focus on innovation, clarity, and technical content</li>
+  </ul>
+
+  <p>
+    Be ready to showcase your ideas and research in front of peers and faculty!
+  </p>
+</div>
+
     <form onSubmit={handleSubmit}>
   {/* Team Info */}
   <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
@@ -132,7 +164,7 @@ const PaperForge = () => {
 
   <button type="submit">Submit</button>
 </form>
-
+</>
   );
 };
 

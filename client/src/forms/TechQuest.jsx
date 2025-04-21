@@ -57,6 +57,33 @@ const TechQuest = () => {
   };
 
   return (
+    <>
+    <div className="event-description">
+  <h2>TECH QUEST CHALLENGE</h2>
+  <p><em>Reboot Your Brain. Let the Quest Begin!</em></p>
+
+  <p>
+    Welcome to the Tech Quest Challenge, where your technical knowledge and reflexes take the spotlight! 
+    This high‑energy quiz competition pushes you to think fast and act faster, tackling rapid‑fire questions 
+    across multiple domains of technology. Team up, power through the questions, and prove your brilliance 
+    under pressure.
+  </p>
+
+  <p><strong>Event Guidelines and Rules:</strong></p>
+  <ul>
+    <li><strong>Team Size:</strong> Maximum of 2 participants per team.</li>
+    <li><strong>Open to multiple domains.</strong></li>
+    <li><strong>Rounds &amp; Format:</strong>
+      <ul>
+        <li><strong>Round 1:</strong> 15 rapid‑fire technical questions.</li>
+        <li><strong>Round 2:</strong> Top teams from Round 1 advance to a final challenge round.</li>
+      </ul>
+    </li>
+    <li><strong>Objective:</strong> Answer time‑bound, domain‑spanning questions that test technical knowledge, logical reasoning, and quick decision‑making.</li>
+    <li><strong>Judging Criteria:</strong> Based on accuracy, speed, and the team’s overall performance across both rounds.</li>
+  </ul>
+</div>
+
     <form onSubmit={handleSubmit}>
   {/* Team Info */}
   <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
@@ -88,7 +115,7 @@ const TechQuest = () => {
 
   <button type="submit">Submit</button>
 </form>
-
+</>
   );
 };
 

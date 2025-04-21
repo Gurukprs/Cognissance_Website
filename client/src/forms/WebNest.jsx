@@ -67,6 +67,29 @@ const WebNest = () => {
   };
 
   return (
+    <>
+    <div className="event-description">
+  <h2>Web Nest</h2>
+  <p>
+    Web Nest is a dynamic and creative web design event where innovation meets aesthetics.
+  </p>
+
+  <p>
+    <strong>Event Type:</strong> Team (max 3 members)<br />
+    <strong>Platform:</strong> HTML/CSS/JS, Bootstrap, Tailwind, React, etc.<br />
+    <strong>Theme:</strong> Disclosed at the start of the event
+  </p>
+
+  <p><strong>Rules:</strong></p>
+  <ul>
+    <li>Participants must bring their own laptops, chargers, and have required software pre‑installed.</li>
+    <li>Code plagiarism is strictly prohibited; teams found copying will be disqualified.</li>
+    <li>Judging based on originality, responsiveness, UI/UX, theme relevance, and creativity.</li>
+    <li>All submissions must be made within the allotted time frame.</li>
+    <li>Judges’ decision is final and binding.</li>
+  </ul>
+</div>
+
     <form onSubmit={handleSubmit}>
   {/* Team Info */}
   <input type="text" name="teamName" placeholder="Team Name" value={formData.teamName} onChange={handleChange} required />
@@ -110,7 +133,7 @@ const WebNest = () => {
 
   <button type="submit"><span>Submit</span></button>
 </form>
-
+</>
   );
 };
 

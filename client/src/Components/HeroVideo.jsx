@@ -56,41 +56,19 @@ const HeroVideo = () => {
       />
 
       <section className="video-section">
-        {/* <div className="video-container">
-          <div className="centerizer">
-            <div className="cognissance-wrapper">
-              <h1 className="cognissance-3d shimmer-text">
-                COGNISSANCE'25
-              </h1>
-            </div>
-          </div>
-        </div> */}
-        {/* Try 2 */}
-        {/* <div className="video-container" style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '50vh',
-            zIndex: 10,
-            position: 'relative',
-          }}>
-            <h1 className="cognissance-3d shimmer-text" style={{
-              opacity: 1,
-              transform: 'translateY(0)',
-              fontSize: '3.5rem',
-              color: '#fff',
-              // zIndex: ,
-            }}>
-              COGNISSANCE'25
-            </h1>
-          </div> */}
-          <div className="video-container">
+        <div className="video-container">
+          {/* ——— Two Logos on the Left ——— */}
+        
+
           <div className="text-layer">
+            {/* ——— Floating College Header ——— */}
+            <h3 className="college-float">KONGU ENGINEERING COLLEGE</h3>
             <h1 className="cognissance-3d shimmer-text">COGNISSANCE'25</h1>
           </div>
+
+          {/* ——— Two Logos on the Right ——— */}
+          
         </div>
-
-
 
         <div className="img-container">
           <img src="/media/window.png" alt="" className="img" />
@@ -126,7 +104,6 @@ const HeroVideo = () => {
 
       {/* <section style={{ height: "1px" }} /> */}
       {/* <section><Events/></section> */}
-
     </div>
   );
 };

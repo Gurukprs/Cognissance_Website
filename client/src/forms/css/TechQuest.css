@@ -1,4 +1,170 @@
 /* BrainFryer.css */
+/* Overall Page Layout */
+body {
+  background-color: #0e1117;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #d0d0d0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional Wrapper to limit width */
+.techquest-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the event description and form */
+.techquest-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* Event Description (Left side) */
+.event-description {
+  flex: 1;
+  background-color: #1a1f2b;
+  padding: 30px;
+  border-radius: 15px;
+  color: #e0f7ff;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.25);
+  transition: all 0.4s ease;
+  height: auto; /* Allows content to adjust with its height */
+}
+
+.event-description h2 {
+  color: #7fdbff;
+  margin-bottom: 20px; /* Increased margin for spacing */
+  font-size: 2rem; /* Slightly larger font for headers */
+}
+
+.event-description p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-align: justify; /* Improved text alignment */
+}
+
+/* Form (Right side) */
+form {
+  flex: 1;
+  background-color: #1a1f2b;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for better spacing */
+  transition: all 0.4s ease;
+}
+
+form h3 {
+  color: #7fdbff;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Input & Select Styling */
+input,
+select {
+  padding: 12px;
+  border: 1px solid #7fdbff;
+  border-radius: 10px;
+  background-color: #11151c;
+  color: #e0f7ff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #00ffff;
+  outline: none;
+  background-color: #0e121a;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #00ffff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Entry Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .techquest-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  .event-description {
+    margin-bottom: 20px;
+    padding: 20px; /* Reduced padding for mobile */
+  }
+
+  form {
+    padding: 20px; /* Reduced padding for mobile */
+  }
+
+  .event-description h2 {
+    font-size: 1.6rem; /* Reduced font size for mobile */
+  }
+
+  .event-description p {
+    font-size: 1rem; /* Adjusted font size for mobile */
+    margin-bottom: 10px;
+  }
+
+  form h3 {
+    font-size: 1.3rem; /* Adjusted font size for mobile */
+  }
+
+  input,
+  select {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+
+  button[type="submit"] {
+    padding: 12px; /* Reduced padding for mobile */
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+}
 
 form {
   background-color: #1e1e1e;

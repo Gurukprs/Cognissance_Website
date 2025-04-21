@@ -1,5 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
+.floating-college-header {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 25;
+}
+
+.college-float {
+  position: static; /* override absolute */
+  font-family: 'Cinzel Decorative', cursive;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.logos-left-float,
+.logos-right-float {
+  display: flex;
+  gap: 10px;
+}
+
+.logos-left-float img,
+.logos-right-float img {
+  width: 40px;
+  height: auto;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+ 
 .shimmer-text {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: 700;
@@ -78,7 +122,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1; /* Behind the window */
-  color: #fff;
+  color: #000000;
   font-size: 3.5rem;
   text-align: center;
 }
@@ -88,4 +132,37 @@
 }
 .text-content{
   z-index: 3;
+}
+.logo-group {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 20;
+}
+.logo-group.left {
+  left: 20px;
+}
+.logo-group.right {
+  right: 20px;
+}
+.logo-group img {
+  width: 50px;
+  height: auto;
+}
+
+/* ——— ADDED: Floating college header above main title ——— */
+.college-float {
+  position: absolute;
+  top: -40px;           /* floats above the H1 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cinzel Decorative', cursive;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  z-index: 15;
+  pointer-events: none;
 }

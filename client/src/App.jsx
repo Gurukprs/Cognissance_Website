@@ -113,6 +113,9 @@ function AppContent() {
         <Route path="/register/brain-fryer" element={<BrainFryer />} />
         <Route path="/register/tech-quest-challenge" element={<TechQuest />} />
         <Route path="/register/web-nest" element={<WebNest />} />
+        
+
+
       </Routes>
     </>
   );

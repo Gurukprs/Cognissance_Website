@@ -1,8 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Events from "./Events";
 import "../CSS/HeroVideo.css"; // Import the separate CSS file
 
 const HeroVideo = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // ✅ Initial check
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+    };
+
+    checkIfMobile(); // Initial check
+    window.addEventListener("resize", checkIfMobile); // Add event listener for window resize
+
+    return () => {
+      window.removeEventListener("resize", checkIfMobile); // ✅ Cleanup
+    };
+  }, []); // 🔁 This effect only sets up the listener and initial state
+
   useEffect(() => {
     const mainTitle = document.querySelector('.cognissance-3d');
     console.log("Main Title Element:", mainTitle); // <--- 👀 This is what we want to see
@@ -71,7 +87,12 @@ const HeroVideo = () => {
         </div>
 
         <div className="img-container">
-          <img src="/media/window.png" alt="" className="img" />
+          {/* <img src="/media/window.png" alt="" className="img" /> */}
+          <img 
+          src={isMobile ? "/media/window_mob1.png" : "/media/window.png"} 
+          alt="Window Overlay" 
+          className="img" 
+          />
         </div>
 
         <div className="text-content">
@@ -81,7 +102,7 @@ const HeroVideo = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              marginLeft: '40px'
+              marginLeft: isMobile ? '20px' : '40px'
             }}
           >
             <div className="title sm left">

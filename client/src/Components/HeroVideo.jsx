@@ -96,28 +96,29 @@ const HeroVideo = () => {
         </div>
 
         <div className="text-content">
-          <div 
-            className="img_txt" 
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              marginLeft: isMobile ? '20px' : '40px'
-            }}
-          >
-            <div className="title sm left">
-              <span>CSEA & CCC</span>
-            </div>
-            <div className="title bg left">
-              <span>Presents</span>
-            </div>
-            <div className="title bg right">
-              <span>An</span>
-            </div>
-            <div className="title bg right symposium">
-              <span>Inter Department Symposium</span>
-            </div>
-          </div>
+        <div className="img_txt" style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  marginLeft: isMobile ? '20px' : '40px',
+  gap: '4px', // small vertical gap
+}}>
+  <div className="title sm left">
+    <span>CSEA & CCC</span>
+  </div>
+  <div className="title bg left">
+    <span>Presents</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', gap: '0px' }}>
+    <div className="title bg right" style={{ marginBottom: '0px' }}>
+      <span>An</span>
+    </div>
+    <div className="title bg right symposium" style={{ marginTop: '0px' }}>
+      <span>Inter Department Symposium</span>
+    </div>
+  </div>
+</div>
+
 
           <p className="txt-bottom">Cognissance team</p>
         </div>

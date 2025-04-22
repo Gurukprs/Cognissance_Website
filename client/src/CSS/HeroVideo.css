@@ -168,19 +168,53 @@
 }
 
 @media (max-width: 768px) {
+  .text-layer {
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 0 10px;
+  }
+
   .text-layer h1.cognissance-3d {
-    font-size: 2rem; /* reduced for mobile */
+    font-size: 2rem; /* More readable */
+    word-break: break-word;
   }
 
   .text-layer h3.college-float {
-    font-size: 0.9rem; /* slightly smaller */
+    font-size: 1rem;
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+  }
+
+  .img_txt {
+    gap: 0px !important;
+    row-gap: 0px !important;
+    margin-top: 10px;
+  }
+
+  .img_txt .title {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2;
   }
 
   .img_txt .title span {
-    font-size: 0.9rem; /* adjust titles */
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 !important;
+    padding: 0 !important;
   }
+  .title span {
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    font-size: 1rem;
+  }
+  
 
   .txt-bottom {
-    font-size: 0.8rem; /* optional: adjust bottom text */
+    font-size: 0.9rem;
+    padding-left: 20px;
   }
 }

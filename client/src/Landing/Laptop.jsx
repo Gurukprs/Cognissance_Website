@@ -71,6 +71,11 @@ const Laptop = () => {
       })
       .from(".right-side", { opacity: 0, duration: 2 }, 0.5)
       .to(".wrapper", { x: -window.innerWidth });
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        gsap.globalTimeline.clear();
+      };
+      
   }, []);
 
   return (

@@ -3,22 +3,20 @@ import Laptop from "./Laptop";
 import Mobile from "./Mobile";
 
 const Controller = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null); // Start as null
 
   useEffect(() => {
     const checkDevice = () => {
-      const isNowMobile = window.innerWidth < 768;
-      setIsMobile((prev) => {
-        if (prev !== isNowMobile) return isNowMobile;
-        return prev;
-      });
+      setIsMobile(window.innerWidth < 768);
     };
-  
+
     checkDevice();
     window.addEventListener("resize", checkDevice);
+
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
-  
+
+  if (isMobile === null) return null; // Or show a loading spinner
 
   return isMobile ? <Mobile /> : <Laptop />;
 };

@@ -166,3 +166,21 @@
   z-index: 15;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .text-layer h1.cognissance-3d {
+    font-size: 2rem; /* reduced for mobile */
+  }
+
+  .text-layer h3.college-float {
+    font-size: 0.9rem; /* slightly smaller */
+  }
+
+  .img_txt .title span {
+    font-size: 0.9rem; /* adjust titles */
+  }
+
+  .txt-bottom {
+    font-size: 0.8rem; /* optional: adjust bottom text */
+  }
+}

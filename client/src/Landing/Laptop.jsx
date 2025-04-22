@@ -2,8 +2,8 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import HeroVideo from "./Components/HeroVideo";
-import Events from "./Components/Events";
+import HeroVideo from "../Components/HeroVideo";
+import Events from "../Components/Events";
 
 const Laptop = () => {
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Laptop from "./Laptop";
-
+// import Events from "./Components/Events";
+import Controller from "./Landing/Controller";
 
 // Import individual event registration components
 import PaperForge from "./forms/PaperForge";;
@@ -25,7 +25,8 @@ function AppContent() {
       {showNavbar && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Laptop />} />
+        <Route path="/" element={<Controller />} />
+        {/* <Route path="/" element={<Events />} /> */}
         {/* Register pages */}
         <Route path="/register/paper-forge" element={<PaperForge />} />
         <Route path="/register/pitch-project" element={<PitchProject />} />

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-// import Events from "./Components/Events";
+import Laptop from "./Landing/Laptop";
 import Controller from "./Landing/Controller";
 
 // Import individual event registration components
@@ -12,6 +12,7 @@ import BrainFryer from "./forms/BrainFryer";
 import TechQuest from "./forms/TechQuest";
 
 import "./style.css";
+// import Laptop from "./Landing/Laptop";
 
 // 👉 All routing and logic goes here
 function AppContent() {
@@ -25,7 +26,7 @@ function AppContent() {
       {showNavbar && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Controller />} />
+        <Route path="/" element={<Laptop />} />
         {/* <Route path="/" element={<Events />} /> */}
         {/* Register pages */}
         <Route path="/register/paper-forge" element={<PaperForge />} />

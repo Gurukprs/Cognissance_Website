@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./css/BrainFryer.css"; // Import the CSS file for styling
-
+import { useNavigate } from "react-router-dom";
 const TechQuest = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // <-- Loading state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +29,7 @@ const TechQuest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // start loading spinner
     try {
       // ✅ Format the data as an array for Google Sheets
       const data = [
@@ -52,13 +55,24 @@ const TechQuest = () => {
       const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
       setFormData({ ...formData, teamName:"", name: "", rollNumber: "",dept: "", email: "",t1Name:"",t1RollNumber:"",t1Dept:"",t1Mail:"",t1PhoneNumber:""});
+      navigate("/"); // redirect after success
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form");
     }
+    finally {
+      setLoading(false); // stop spinner
+    }
   };
 
   return (
+    <>
+      {loading ? (
+        <div className="loading-overlay">
+          <div className="spinner-clock"></div>
+          <p>Submitting...</p>
+        </div>
+      ) : (
     <>
   <div className="event-description">
   <h2>TechQuest - Brain Fryer</h2>
@@ -112,6 +126,8 @@ const TechQuest = () => {
   <button type="submit">Submit</button>
 </form>
 </>
+)}
+    </>
   );
 };
 

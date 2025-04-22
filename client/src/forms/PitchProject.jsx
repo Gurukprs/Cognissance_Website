@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./css/form.css"; // Import the CSS file for styling
+import { useNavigate } from "react-router-dom";
 
 const PitchProject = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // <-- Loading state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +33,7 @@ const PitchProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // start loading spinner
     try {
       // ✅ Format the data as an array for Google Sheets
       const data = [
@@ -60,13 +64,24 @@ const PitchProject = () => {
       const response = await axios.post("https://cognissance-website.onrender.com/submit", payload);
       alert(response.data.message);
       setFormData({ ...formData, teamName:"", name: "", rollNumber: "",dept: "", email: "",t1Name:"",t1RollNumber:"",t1Dept:"",t1Mail:"",t1PhoneNumber:"",t2Name:"",t2RollNumber:"",t2Dept:"",t2Mail:"",t2PhoneNumber:"" });
+      navigate("/"); // redirect after success
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form");
     }
+    finally {
+      setLoading(false); // stop spinner
+    }
   };
 
   return (
+    <>
+      {loading ? (
+        <div className="loading-overlay">
+          <div className="spinner-clock"></div>
+          <p>Submitting...</p>
+        </div>
+      ) : (
     <>
     <div className="event-description">
   <h2>Project Pitch</h2>
@@ -143,6 +158,8 @@ const PitchProject = () => {
   <button type="submit">Submit</button>
 </form>
 </>
+)}
+    </>
   );
 };
 

@@ -109,7 +109,7 @@ const HeroVideo = () => {
   <div className="title bg left">
     <span>Presents</span>
   </div>
-  <div style={{ display:'block' , flexDirection: 'column', lineHeight: '0.1', gap: '0px' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', gap: '0px' }}>
     <div className="title bg right" style={{ marginBottom: '0px' }}>
       <span>An</span>
     </div>

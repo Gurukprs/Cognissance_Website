@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Laptop from "./Laptop";
+import Footer from './Components/Footer';
 
 
 // Import individual event registration components
@@ -36,6 +37,7 @@ function AppContent() {
 
 
       </Routes>
+      {showNavbar && <Footer />}
     </>
   );
 }

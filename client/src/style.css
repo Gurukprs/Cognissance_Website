@@ -302,7 +302,7 @@ footer {
 }
 
 .left {
-	left: -25%;
+	left: -75%;
 }
 
 .right {
@@ -532,7 +532,7 @@ footer {
 	}
 	.img {
 		object-fit: cover;
-		height: 80%;
+		height: 100%;
 		width: 100%;
 	} 
   }

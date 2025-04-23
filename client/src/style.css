@@ -516,12 +516,12 @@ footer {
 		width: 450px;
 		position: center;
 	
-		height:35px ;
+		height: 35px;
 		overflow: hidden;
 	}
 
 	.left {
-		bottom: 200%;
+		bottom: 190%;
 		left: 10%;
 		font-size: 5rem;
 	}
@@ -535,6 +535,9 @@ footer {
 		height: 100%;
 		width: 100%;
 	} 
+	.wrapper {
+		display: block;
+	  }
   }
  /* ✅ iPhone 12 / 13 / 14 (390px × 844px) */
 

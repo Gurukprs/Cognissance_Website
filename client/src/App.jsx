@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Laptop from "./Landing/Laptop";
+import Developers from "./Components/Developers";
 import Controller from "./Landing/Controller";
 
 // Import individual event registration components
@@ -29,7 +29,7 @@ function AppContent() {
         <Route path="/" element={<Controller />} />
         {/* <Route path="/laptop" element={<Laptop />} /> */}
         <Route path="/events" element={<Second />} />
-        {/* <Route path="/" element={<Events />} /> */}
+         <Route path="/developers" element={<Developers />} /> 
         {/* Register pages */}
         <Route path="/register/paper-forge" element={<PaperForge />} />
         <Route path="/register/pitch-project" element={<PitchProject />} />

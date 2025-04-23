@@ -1,4 +1,3 @@
-// Home.jsx
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -30,7 +29,7 @@ const Laptop = () => {
       x: 500,
       duration: 1.5,
       scrollTrigger: {
-        start: 1,
+        start: "top 60%",
       },
     });
 
@@ -39,7 +38,7 @@ const Laptop = () => {
       x: -500,
       duration: 1.5,
       scrollTrigger: {
-        start: 1,
+        start: "top 60%",
       },
     });
 
@@ -48,7 +47,7 @@ const Laptop = () => {
       letterSpacing: -10,
       duration: 2,
       scrollTrigger: {
-        start: 2,
+        start: "top 60%",
       },
     });
 
@@ -56,7 +55,7 @@ const Laptop = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top top",
-        end: "+=600",
+        end: "+=1500",
         scrub: 1,
         pin: true,
       },
@@ -69,32 +68,87 @@ const Laptop = () => {
         stagger: { amount: 0.4 },
         delay: 0.5,
       })
-      .from(".right-side", { opacity: 0, duration: 2 }, 0.5)
-      .to(".wrapper", { x: -window.innerWidth });
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        gsap.globalTimeline.clear();
-      };
-      
+      .from(".right-side", { opacity: 0, duration: 2 }, 0.5);
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      gsap.globalTimeline.clear();
+    };
   }, []);
 
   return (
-    <div className="wrapper">
-      <section className="video-section">
-        <HeroVideo />
-      </section>
-      <section>
-        <Events />
-        <footer style={{ backgroundColor: "#000", color: "#fff", padding: "1.5rem", textAlign: "center" }}>
-  <p>M.R.Prasanndh Raaju - 8946050246</p>
-  <p>Rahulandiran M - 9629074704</p>
-  <p>Divya K - 6374939491</p>
-  <p>Dharaneesh S S - 7845759168</p>
-  <p>Mathumathi M - 6369593242</p>
-</footer>
+    <>
+      <div className="wrapper">
+        <section className="video-section">
+          <div className="img-container">
+            <HeroVideo />
+          </div>
+        </section>
+        <section className="content-section">
+          <Events />
+          <footer className="footer">
+            <p>M.R.Prasanndh Raaju - 8946050246</p>
+            <p>Rahulandiran M - 9629074704</p>
+            <p>Divya K - 6374939491</p>
+            <p>Dharaneesh S S - 7845759168</p>
+            <p>Mathumathi M - 6369593242</p>
+          </footer>
+        </section>
+      </div>
 
-      </section>
-    </div>
+      <style>{`
+  .wrapper {
+    width: 100%;
+  }
+
+  .video-section {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-container{
+    top:15%;
+  }
+  .video-section video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+  }
+  .text-content{
+    z-index: 1;
+  }
+  .left{
+    z-index: 2;
+  }
+    .img-container{
+    z-index: -2;
+    }
+  .content-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+  }
+
+  .footer {
+    background-color: #000;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  }
+
+  
+`}</style>
+
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ import PitchProject from "./forms/PitchProject";
 import WebNest from "./forms/WebNest";
 import BrainFryer from "./forms/BrainFryer";
 import TechQuest from "./forms/TechQuest";
-
+import Second from "./Components/Events";
 import "./style.css";
 // import Laptop from "./Landing/Laptop";
 
@@ -27,6 +27,8 @@ function AppContent() {
 
       <Routes>
         <Route path="/" element={<Laptop />} />
+        <Route path="/laptop" element={<Laptop />} />
+        <Route path="/second" element={<Second />} />
         {/* <Route path="/" element={<Events />} /> */}
         {/* Register pages */}
         <Route path="/register/paper-forge" element={<PaperForge />} />

@@ -108,9 +108,19 @@ const TechQuest = () => {
   <input type="text" name="rollNumber" placeholder="Leader Roll Number" value={formData.rollNumber} onChange={handleChange} required />
   <select name="dept" value={formData.dept} onChange={handleChange} required>
     <option value="">Select Department</option>
-    <option value="CSE">CSE</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
     {/* Add more as needed */}
   </select>
   <input type="email" name="email" placeholder="Leader Email" value={formData.email} onChange={handleChange} required />
@@ -121,9 +131,19 @@ const TechQuest = () => {
   <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
   <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
     <option value="">Select Department</option>
-    <option value="CSE">CSE</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
   </select>
   <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange} required />
   <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />

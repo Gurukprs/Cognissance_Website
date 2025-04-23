@@ -45,10 +45,9 @@ function Navbar() {
   </div>
 
   <ul className={`menu ${menuOpen ? 'open' : ''}`}>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Events</a></li>
-    <li><a href="#">Schedule</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="laptop">Home</a></li>
+    <li><a href="second">Events</a></li>
+    <li><a href="developers">Developers</a></li>
   </ul>
 
   <div className="btn">{timeLeft}</div>

@@ -133,9 +133,19 @@ const PaperForge = () => {
       <input type="text" name="rollNumber" placeholder="Leader Roll Number" value={formData.rollNumber} onChange={handleChange} required />
       <select name="dept" value={formData.dept} onChange={handleChange} required>
         <option value="">Select Department</option>
-        <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
-        <option value="IT">IT</option>
+    <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
         {/* Add more as needed */}
       </select>
       <input type="email" name="email" placeholder="Leader Email" value={formData.email} onChange={handleChange} required />
@@ -146,9 +156,19 @@ const PaperForge = () => {
       <input type="text" name="t1RollNumber" placeholder="Teammate 1 Roll Number" value={formData.t1RollNumber} onChange={handleChange}  />
       <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} >
         <option value="">Select Department</option>
-        <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
-        <option value="IT">IT</option>
+    <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
       </select>
       <input type="email" name="t1Mail" placeholder="Teammate 1 Email" value={formData.t1Mail} onChange={handleChange}  />
       <input type="text" name="t1PhoneNumber" placeholder="Teammate 1 Phone Number" value={formData.t1PhoneNumber} onChange={handleChange}  />
@@ -158,9 +178,19 @@ const PaperForge = () => {
       <input type="text" name="t2RollNumber" placeholder="Teammate 2 Roll Number" value={formData.t2RollNumber} onChange={handleChange}  />
       <select name="t2Dept" value={formData.t2Dept} onChange={handleChange} >
         <option value="">Select Department</option>
-        <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
-        <option value="IT">IT</option>
+    <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
       </select>
       <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange}  />
       <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange}  />
@@ -170,9 +200,19 @@ const PaperForge = () => {
       <input type="text" name="t3RollNumber" placeholder="Teammate 3 Roll Number" value={formData.t3RollNumber} onChange={handleChange}  />
       <select name="t3Dept" value={formData.t3Dept} onChange={handleChange} required>
         <option value="">Select Department</option>
-        <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
-        <option value="IT">IT</option>
+    <option value="IT">IT</option>
+    <option value="ECE">ECE</option>
+    <option value="MECHANICAL">MECHANICAL</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="E&I">E&I</option>
+    <option value="CSD">CSD</option>
+    <option value="MECHATRONICS">MECHATRONICS</option>
+    <option value="CHEMICAL">CHEMICAL</option>
+    <option value="FT">FOOD TECHNOLOGY</option>
+    <option value="AIDS">AIDS</option>
+    <option value="AIML">AIML</option>
+    <option value="AUTOMOBILE">AUTOMOBILE</option>
       </select>
       <input type="email" name="t3Mail" placeholder="Teammate 3 Email" value={formData.t3Mail} onChange={handleChange} />
       <input type="text" name="t3PhoneNumber" placeholder="Teammate 3 Phone Number" value={formData.t3PhoneNumber} onChange={handleChange}  />

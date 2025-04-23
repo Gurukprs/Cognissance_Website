@@ -331,7 +331,7 @@ function Developers() {
       </main>
 
       <footer>
-        <p>&copy; Designed and Maintained in 2025</p>
+        <p>&copy; Designed and Maintained by Megha</p>
       </footer>
     </div>
   );

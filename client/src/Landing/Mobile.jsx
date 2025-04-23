@@ -90,6 +90,7 @@ const Laptop = () => {
             <p>M.R.Prasanndh Raaju - 8946050246</p>
             <p>Rahulandiran M - 9629074704</p>
             <p>Divya K - 6374939491</p>
+            <br></br>
             <p>Dharaneesh S S - 7845759168</p>
             <p>Mathumathi M - 6369593242</p>
           </footer>

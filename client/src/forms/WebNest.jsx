@@ -133,9 +133,9 @@ const WebNest = () => {
   <input type="text" name="phoneNumber" placeholder="Leader Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
 
   {/* Teammate 1 Info */}
-  <input type="text" name="t1Name" placeholder="Teammate 1 Name" value={formData.t1Name} onChange={handleChange} required />
-  <input type="text" name="t1RollNumber" placeholder="Teammate 1 Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
-  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+  <input type="text" name="t1Name" placeholder="Teammate 1 Name" value={formData.t1Name} onChange={handleChange}  />
+  <input type="text" name="t1RollNumber" placeholder="Teammate 1 Roll Number" value={formData.t1RollNumber} onChange={handleChange}  />
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} >
     <option value="">Select Department</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
@@ -151,13 +151,13 @@ const WebNest = () => {
     <option value="AIML">AIML</option>
     <option value="AUTOMOBILE">AUTOMOBILE</option>
   </select>
-  <input type="email" name="t1Mail" placeholder="Teammate 1 Email" value={formData.t1Mail} onChange={handleChange} required />
-  <input type="text" name="t1PhoneNumber" placeholder="Teammate 1 Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />
+  <input type="email" name="t1Mail" placeholder="Teammate 1 Email" value={formData.t1Mail} onChange={handleChange}  />
+  <input type="text" name="t1PhoneNumber" placeholder="Teammate 1 Phone Number" value={formData.t1PhoneNumber} onChange={handleChange}  />
 
   {/* Teammate 2 Info */}
-  <input type="text" name="t2Name" placeholder="Teammate 2 Name" value={formData.t2Name} onChange={handleChange} required />
-  <input type="text" name="t2RollNumber" placeholder="Teammate 2 Roll Number" value={formData.t2RollNumber} onChange={handleChange} required />
-  <select name="t2Dept" value={formData.t2Dept} onChange={handleChange} required>
+  <input type="text" name="t2Name" placeholder="Teammate 2 Name" value={formData.t2Name} onChange={handleChange}  />
+  <input type="text" name="t2RollNumber" placeholder="Teammate 2 Roll Number" value={formData.t2RollNumber} onChange={handleChange}  />
+  <select name="t2Dept" value={formData.t2Dept} onChange={handleChange} >
     <option value="">Select Department</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
@@ -173,8 +173,8 @@ const WebNest = () => {
     <option value="AIML">AIML</option>
     <option value="AUTOMOBILE">AUTOMOBILE</option>
   </select>
-  <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange} required />
-  <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange} required />
+  <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange}  />
+  <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange}  />
 
   <button type="submit"><span>Submit</span></button>
 </form>

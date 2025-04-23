@@ -86,7 +86,7 @@ const Laptop = () => {
       <section>
         <Events />
         <footer style={{ backgroundColor: "#000", color: "#fff", padding: "1.5rem", textAlign: "center" }}>
-  <p>M.R.Prasanndh Raaju - 8946050246</p>
+  <p>Prasanndh Raaju M R - 8946050246</p>
   <p>Rahulandiran M - 9629074704</p>
   <p>Divya K - 6374939491</p>
   <p>Dharaneesh S S - 7845759168</p>

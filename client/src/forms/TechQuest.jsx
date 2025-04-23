@@ -127,9 +127,9 @@ const TechQuest = () => {
   <input type="text" name="phoneNumber" placeholder="Leader Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
 
   {/* Teammate 1 Info */}
-  <input type="text" name="t1Name" placeholder="Teammate Name" value={formData.t1Name} onChange={handleChange} required />
-  <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange} required />
-  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+  <input type="text" name="t1Name" placeholder="Teammate Name" value={formData.t1Name} onChange={handleChange} />
+  <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange}  />
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} >
     <option value="">Select Department</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>
@@ -145,8 +145,8 @@ const TechQuest = () => {
     <option value="AIML">AIML</option>
     <option value="AUTOMOBILE">AUTOMOBILE</option>
   </select>
-  <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange} required />
-  <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange} required />
+  <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange}  />
+  <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange}  />
 
   <button type="submit">Submit</button>
 </form>

@@ -177,7 +177,7 @@
 
   .text-layer h1.cognissance-3d {
     font-size: 2rem; /* More readable */
-    word-break: break-word;
+    /* word-break: break-word; */
   }
 
   .text-layer h3.college-float {

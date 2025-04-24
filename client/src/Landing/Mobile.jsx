@@ -54,6 +54,15 @@ const Laptop = () => {
       },
     });
 
+    gsap.to(".text-layer", {
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: ".video-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
     gsap.to(".txt-bottom", {
       autoAlpha: 0,
       letterSpacing: -10,
@@ -153,6 +162,16 @@ const Laptop = () => {
     background: #fff;
     // z-index: 3;
   }
+
+  .video-section {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.content-section {
+  position: relative;
+  z-index: 2;
+}
 
   .footer {
     background-color: #000;

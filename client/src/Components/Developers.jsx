@@ -42,7 +42,7 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: "Dharaneesh S",
+    name: "Dharaneesh SS",
     year: "II",
     department: "CSE",
     executiveMember: true,

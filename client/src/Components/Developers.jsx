@@ -15,7 +15,7 @@ const teamMembers = [
     executiveMember: true,
     executiveRole: "Treasurer CSEA",
     bio: "Frontend specialist with 8 years of experience in React and modern JavaScript frameworks. Expert in creating responsive, accessible user interfaces.",
-    image: "/images/d.jpg",
+    image: "/images/guru.jpg",
     skills: ["React", "TypeScript", "UI/UX", "GraphQL"]
   },
   {
@@ -37,18 +37,18 @@ const teamMembers = [
     executiveMember: true,
     executiveRole: "Executive Member CCC",
     bio: "Systems architect with expertise in scalable cloud solutions and performance optimization for high-traffic applications.",
-    image: "/images/o.jpg",
+    image: "/images/preethi.jpg",
     skills: ["Node.js", "AWS", "Databases", "System Architecture"]
   },
   {
     id: 4,
-    name: "Dharaneesh SS",
+    name: "Dharaneesh S S",
     year: "II",
     department: "CSE",
     executiveMember: true,
     executiveRole: "Executive Member CCC",
     bio: "Agile expert who excels at coordinating cross-functional teams and delivering complex projects on time and within budget.",
-    image: "/api/placeholder/350/350",
+    image: "/images/dharaneesh.jpg",
     skills: ["Agile", "Scrum", "Team Leadership", "Strategic Planning"]
   }
 ];

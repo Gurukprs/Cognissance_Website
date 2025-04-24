@@ -19,8 +19,8 @@ const TechQuest = () => {
     teamName: "",
     // spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",  // Change as needed
     // sheetName: "Main"  // Change as needed
-    spreadsheetId: "1jAuwsKSVDEZsPMwFXHbW4qoumn4p6AFRQRLmn42awnU",
-    sheetName: "Trial" 
+    spreadsheetId: "1RqGJru0Ts3D9e-gleLzIQHQdje7NNhx03gx-rby7RyA",
+    sheetName: "Main" 
   });
 
   const handleChange = (e) => {

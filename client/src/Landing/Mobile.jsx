@@ -12,7 +12,7 @@ const Laptop = () => {
       toggleActions: "play none none reverse",
     });
 
-    gsap.to(".img-container", {
+    gsap.to(".img-container img", {
       scale: 52,
       ease: "ease",
       scrollTrigger: {

@@ -33,6 +33,18 @@ const Laptop = () => {
       },
     });
 
+    gsap.to(".text-content", {
+      autoAlpha: 0,
+      y: -100,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".video-section",
+        start: "top top",        // when video-section hits top
+        end: "bottom top",       // when it's fully scrolled out
+        scrub: true,
+      },
+    });
+    
     gsap.to(".content-section .left", {
       autoAlpha: 0,
       x: -500,

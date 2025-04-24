@@ -55,7 +55,7 @@ const Laptop = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top top",
-        end: "+=800",
+        end: "+=500",
         scrub: 1,
         pin: true,
       },
@@ -65,7 +65,7 @@ const Laptop = () => {
       .from(".left-side div", {
         y: 150,
         opacity: 0,
-        stagger: { amount: 0.4 },
+        stagger: { amount: 1 },
         delay: 0.5,
       })
       .from(".right-side", { opacity: 0, duration: 2 }, 0.5);

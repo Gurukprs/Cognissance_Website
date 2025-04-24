@@ -88,6 +88,7 @@ const WebNest = () => {
   <h2>Web Nest</h2>
   <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
   <a href="https://chat.whatsapp.com/EPUaU7uqYQb3vdPjKUyHQ9" target="_blank" className="link-highlight">https://chat.whatsapp.com/EPUaU7uqYQb3vdPjKUyHQ9</a>
+  <br/><br />
   <p>
     Web Nest is a dynamic and creative web design event where innovation meets aesthetics.
   </p>

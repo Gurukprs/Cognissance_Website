@@ -98,6 +98,7 @@ const PaperForge = () => {
       <h2>PAPER FORGE</h2>
       <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
       <a href="https://chat.whatsapp.com/HNxihzXGU5SBF8JFCdhBIL" target="_blank" className="link-highlight">https://chat.whatsapp.com/HNxihzXGU5SBF8JFCdhBIL</a>
+      <br/><br />
       <p>
         Participants are invited to present their papers on any one of the following topics:
       </p>

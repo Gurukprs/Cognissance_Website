@@ -352,3 +352,18 @@ select {
     transform: rotate(360deg);
   }
 }
+.link-highlight {
+  word-break: break-all; /* Ensures it breaks mid-word if needed */
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Optional: Tighter control for mobile specifically */
+@media (max-width: 768px) {
+  .link-highlight {
+    font-size: 0.9rem; /* Slightly smaller on mobile if needed */
+    word-break: break-all;
+    display: inline-block;
+  }
+}

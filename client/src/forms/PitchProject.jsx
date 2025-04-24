@@ -88,7 +88,7 @@ const PitchProject = () => {
   <h2>Project Pitch</h2>
   <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
   <a href="https://chat.whatsapp.com/CT2v0x1X3q4g5r7j6Z8Y9E" target="_blank" className="link-highlight">https://chat.whatsapp.com/CT2v0x1X3q4g5r7j6Z8Y9E</a>
-
+  <br/><br />
   <p>
     Participants are encouraged to present innovative and research‑based projects on any one of the following themes:
   </p>

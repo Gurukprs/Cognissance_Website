@@ -79,7 +79,7 @@ const TechQuest = () => {
   <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
   <a href="https://chat.whatsapp.com/KV9Y3758B9T8vqw3KQU2dZ" target="_blank" className="link-highlight">https://chat.whatsapp.com/KV9Y3758B9T8vqw3KQU2dZ</a>
   <p><em>Reboot Your Brain. Let the Quest Begin!</em></p>
-
+  <br/><br />
   <p>
     Welcome to the Tech Quest Challenge, where your technical knowledge and reflexes take the spotlight! 
     This high‑energy quiz competition pushes you to think fast and act faster, tackling rapid‑fire questions 

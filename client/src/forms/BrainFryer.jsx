@@ -65,6 +65,7 @@ const BrainFryer = () => {
   <h2>Brain Fryer</h2>
   <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
   <a href="https://chat.whatsapp.com/DHPKgvgTg8GDx0zJPd9HNS" target="_blank" className="link-highlight">https://chat.whatsapp.com/DHPKgvgTg8GDx0zJPd9HNS</a>
+  <br/><br />
   <p>
     Brain Fryer is a solo event where your thinking and coding skills are put to the test.
     <br /><br />

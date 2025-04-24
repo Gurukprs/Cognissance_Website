@@ -79,7 +79,8 @@ const PitchProject = () => {
       {loading ? (
         <div className="loading-overlay">
           <div className="spinner-clock"></div>
-          <p>Submitting...</p>
+          <p style={{ color: 'black' }}>Submitting...</p><br/>
+          <p style={{ color: 'black' }}>This may take few minutes, please don't close or refresh</p>
         </div>
       ) : (
     <>

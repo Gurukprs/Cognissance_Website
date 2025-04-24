@@ -89,7 +89,8 @@ const PaperForge = () => {
     {loading ? (
       <div className="loading-overlay">
         <div className="spinner-clock"></div>
-        <p>Submitting...</p>
+        <p style={{ color: 'black' }}>Submitting...</p><br/>
+        <p style={{ color: 'black' }}>This may take few minutes, please don't close or refresh</p>
       </div>
     ) : (
   <>
@@ -198,7 +199,7 @@ const PaperForge = () => {
       {/* Teammate 3 Info */}
       <input type="text" name="t3Name" placeholder="Teammate 3 Name" value={formData.t3Name} onChange={handleChange}  />
       <input type="text" name="t3RollNumber" placeholder="Teammate 3 Roll Number" value={formData.t3RollNumber} onChange={handleChange}  />
-      <select name="t3Dept" value={formData.t3Dept} onChange={handleChange} required>
+      <select name="t3Dept" value={formData.t3Dept} onChange={handleChange} >
         <option value="">Select Department</option>
         <option value="EEE">EEE</option>
     <option value="IT">IT</option>

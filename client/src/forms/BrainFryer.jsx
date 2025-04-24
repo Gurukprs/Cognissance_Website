@@ -70,7 +70,8 @@ const TechQuest = () => {
       {loading ? (
         <div className="loading-overlay">
           <div className="spinner-clock"></div>
-          <p>Submitting...</p>
+          <p style={{ color: 'black' }}>Submitting...</p><br/>
+          <p style={{ color: 'black' }}>This may take few minutes, please don't close or refresh</p>
         </div>
       ) : (
     <>
@@ -124,7 +125,7 @@ const TechQuest = () => {
   {/* Teammate 1 Info */}
   <input type="text" name="t1Name" placeholder="Teammate Name" value={formData.t1Name} onChange={handleChange} />
   <input type="text" name="t1RollNumber" placeholder="Teammate Roll Number" value={formData.t1RollNumber} onChange={handleChange}  />
-  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange} required>
+  <select name="t1Dept" value={formData.t1Dept} onChange={handleChange}>
     <option value="">Select Department</option>
     <option value="EEE">EEE</option>
     <option value="IT">IT</option>

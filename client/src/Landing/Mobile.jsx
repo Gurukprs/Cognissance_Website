@@ -24,7 +24,7 @@ const Laptop = () => {
       },
     });
 
-    gsap.to(".right", {
+    gsap.to(".content-section .right", {
       autoAlpha: 0,
       x: 500,
       duration: 1.5,
@@ -33,7 +33,7 @@ const Laptop = () => {
       },
     });
 
-    gsap.to(".left", {
+    gsap.to(".content-section .left", {
       autoAlpha: 0,
       x: -500,
       duration: 1.5,
@@ -106,11 +106,11 @@ const Laptop = () => {
   }
 
   .video-section {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
   .img-container {
     width: 100%;
@@ -139,6 +139,7 @@ const Laptop = () => {
     width: 100%;
     min-height: 100vh;
     background: #fff;
+    // z-index: 3;
   }
 
   .footer {
@@ -147,6 +148,9 @@ const Laptop = () => {
     padding: 1.5rem;
     text-align: center;
   }
+    .text-content {
+    z-index: 3;
+    }
   }
 
   

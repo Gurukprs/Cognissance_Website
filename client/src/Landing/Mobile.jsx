@@ -17,7 +17,7 @@ const Laptop = () => {
       ease: "ease",
       scrollTrigger: {
         trigger: ".video-section",
-        scrub: 0.2,
+        scrub: 1,
         start: "top top",
         end: "bottom",
         pin: true,
@@ -55,8 +55,8 @@ const Laptop = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top top",
-        end: "+=250",
-        scrub: 0.2,
+        end: "+=800",
+        scrub: 1,
         pin: true,
       },
     });

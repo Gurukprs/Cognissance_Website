@@ -86,6 +86,8 @@ const WebNest = () => {
     <>
     <div className="event-description">
   <h2>Web Nest</h2>
+  <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
+  <a href="https://chat.whatsapp.com/EPUaU7uqYQb3vdPjKUyHQ9" target="_blank" className="link-highlight">https://chat.whatsapp.com/EPUaU7uqYQb3vdPjKUyHQ9</a>
   <p>
     Web Nest is a dynamic and creative web design event where innovation meets aesthetics.
   </p>
@@ -176,6 +178,21 @@ const WebNest = () => {
   </select>
   <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange}  />
   <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange}  />
+
+  <div className="radio-group">
+  <label className="question">Have you joined the WhatsApp group? <span style={{ color: 'red' }}>*</span></label>
+  
+  <div className="options">
+    <label>
+      <input type="radio" name="whatsapp" value="yes" required />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="whatsapp" value="no" required />
+      No
+    </label>
+  </div>
+</div>
 
   <button type="submit"><span>Submit</span></button>
 </form>

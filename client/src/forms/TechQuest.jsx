@@ -76,6 +76,8 @@ const TechQuest = () => {
     <>
     <div className="event-description">
   <h2>TECH QUEST CHALLENGE</h2>
+  <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
+  <a href="https://chat.whatsapp.com/KV9Y3758B9T8vqw3KQU2dZ" target="_blank" className="link-highlight">https://chat.whatsapp.com/KV9Y3758B9T8vqw3KQU2dZ</a>
   <p><em>Reboot Your Brain. Let the Quest Begin!</em></p>
 
   <p>
@@ -148,6 +150,21 @@ const TechQuest = () => {
   </select>
   <input type="email" name="t1Mail" placeholder="Teammate Email" value={formData.t1Mail} onChange={handleChange}  />
   <input type="text" name="t1PhoneNumber" placeholder="Teammate Phone Number" value={formData.t1PhoneNumber} onChange={handleChange}  />
+
+  <div className="radio-group">
+  <label className="question">Have you joined the WhatsApp group? <span style={{ color: 'red' }}>*</span></label>
+  
+  <div className="options">
+    <label>
+      <input type="radio" name="whatsapp" value="yes" required />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="whatsapp" value="no" required />
+      No
+    </label>
+  </div>
+</div>
 
   <button type="submit">Submit</button>
 </form>

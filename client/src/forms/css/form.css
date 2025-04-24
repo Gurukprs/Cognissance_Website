@@ -7,7 +7,34 @@ body {
   color: #d0d0d0;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+.link-highlight {
+  color: violet;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.radio-group {
+  margin: 1.5rem 0;
+  font-family: sans-serif;
+}
 
+.question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.options label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+
+.link-highlight:hover {
+  color: deeppink; /* or any hover color you want */
+}
 /* Optional Wrapper to limit width */
 .techquest-wrapper {
   width: 100%;

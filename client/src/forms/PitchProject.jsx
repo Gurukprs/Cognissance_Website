@@ -86,6 +86,8 @@ const PitchProject = () => {
     <>
     <div className="event-description">
   <h2>Project Pitch</h2>
+  <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
+  <a href="https://chat.whatsapp.com/CT2v0x1X3q4g5r7j6Z8Y9E" target="_blank" className="link-highlight">https://chat.whatsapp.com/CT2v0x1X3q4g5r7j6Z8Y9E</a>
 
   <p>
     Participants are encouraged to present innovative and research‑based projects on any one of the following themes:
@@ -185,6 +187,22 @@ const PitchProject = () => {
   </select>
   <input type="email" name="t2Mail" placeholder="Teammate 2 Email" value={formData.t2Mail} onChange={handleChange}  />
   <input type="text" name="t2PhoneNumber" placeholder="Teammate 2 Phone Number" value={formData.t2PhoneNumber} onChange={handleChange}  />
+
+  <div className="radio-group">
+  <label className="question">Have you joined the WhatsApp group? <span style={{ color: 'red' }}>*</span></label>
+  
+  <div className="options">
+    <label>
+      <input type="radio" name="whatsapp" value="yes" required />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="whatsapp" value="no" required />
+      No
+    </label>
+  </div>
+</div>
+
 
   <button type="submit">Submit</button>
 </form>

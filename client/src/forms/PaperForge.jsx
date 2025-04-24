@@ -96,6 +96,8 @@ const PaperForge = () => {
   <>
     <div className="event-description">
       <h2>PAPER FORGE</h2>
+      <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
+      <a href="https://chat.whatsapp.com/HNxihzXGU5SBF8JFCdhBIL" target="_blank" className="link-highlight">https://chat.whatsapp.com/HNxihzXGU5SBF8JFCdhBIL</a>
       <p>
         Participants are invited to present their papers on any one of the following topics:
       </p>
@@ -217,6 +219,21 @@ const PaperForge = () => {
       </select>
       <input type="email" name="t3Mail" placeholder="Teammate 3 Email" value={formData.t3Mail} onChange={handleChange} />
       <input type="text" name="t3PhoneNumber" placeholder="Teammate 3 Phone Number" value={formData.t3PhoneNumber} onChange={handleChange}  />
+
+      <div className="radio-group">
+  <label className="question">Have you joined the WhatsApp group? <span style={{ color: 'red' }}>*</span></label>
+  
+  <div className="options">
+    <label>
+      <input type="radio" name="whatsapp" value="yes" required />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="whatsapp" value="no" required />
+      No
+    </label>
+  </div>
+</div>
 
       <button type="submit">Submit</button>
     </form>

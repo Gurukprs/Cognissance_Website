@@ -63,6 +63,8 @@ const BrainFryer = () => {
     <>
   <div className="event-description">
   <h2>Brain Fryer</h2>
+  <h3 style={{color:'steelblue'}}>Whatsapp Group link:</h3>
+  <a href="https://chat.whatsapp.com/DHPKgvgTg8GDx0zJPd9HNS" target="_blank" className="link-highlight">https://chat.whatsapp.com/DHPKgvgTg8GDx0zJPd9HNS</a>
   <p>
     Brain Fryer is a solo event where your thinking and coding skills are put to the test.
     <br /><br />
@@ -104,6 +106,22 @@ const BrainFryer = () => {
   </select>
   <input type="email" name="email" placeholder="Student Email" value={formData.email} onChange={handleChange} required />
   <input type="text" name="phoneNumber" placeholder="Student Phone Number" value={formData.phoneNumber} onChange={handleChange} required />
+
+  <div className="radio-group">
+  <label className="question">Have you joined the WhatsApp group? <span style={{ color: 'red' }}>*</span></label>
+  
+  <div className="options">
+    <label>
+      <input type="radio" name="whatsapp" value="yes" required />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="whatsapp" value="no" required />
+      No
+    </label>
+  </div>
+</div>
+
   <button type="submit">Submit</button>
 </form>
 </>

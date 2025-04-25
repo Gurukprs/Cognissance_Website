@@ -76,7 +76,7 @@ const Laptop = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top top",
-        end: "+=500",
+        end: "+=250",
         scrub: 1,
         pin: true,
       },

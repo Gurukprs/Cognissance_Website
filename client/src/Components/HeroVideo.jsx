@@ -89,7 +89,7 @@ const HeroVideo = () => {
         <div className="img-container">
           {/* <img src="/media/window.png" alt="" className="img" /> */}
           <img 
-          src={isMobile ? "/media/window_mob1.png" : "/media/window.png"} 
+          src={isMobile ? "/media/window_mob1.webp" : "/media/window.png"} 
           alt="Window Overlay" 
           className="img" 
           />

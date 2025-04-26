@@ -16,7 +16,8 @@ const teamMembers = [
     executiveRole: "Treasurer CSEA",
     bio: "Full Stack and Cloud specialist with 4 years of experience in React and modern JavaScript frameworks. Expert in creating responsive, accessible user interfaces.",
     image: "/images/guru.jpg",
-    skills: ["React", "Node", "Google Cloud Console","CSS"]
+    skills: ["React", "Node", "Google Cloud Console","CSS"],
+    portfolioLink:"https://guruprasaaths.netlify.app/"
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ const teamMembers = [
     executiveRole: "CSEA Newsletter Team",
     bio: "Creative designer passionate about crafting intuitive user experiences and beautiful interfaces that solve real user problems.",
     image: "/images/megha.jpg",
-    skills: ["Figma", "React", "Prototyping", "User Research"]
+    skills: ["Figma", "React", "Prototyping", "User Research"],
+    portfolioLink:"https://meghaeg.github.io/portfolio/"
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const teamMembers = [
     executiveRole: "Executive Member CCC",
     bio: "Mobile UI developer with a knack for creating visually stunning and user-friendly mobile applications. Passionate about design and user experience.",
     image: "/images/preethi.jpg",
-    skills: [ "React", "Node", "AWS", "CSS"]
+    skills: [ "React", "Node", "AWS", "CSS"],
+    portfolioLink:"https://obupreethi.netlify.app/"
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const teamMembers = [
     executiveRole: "Executive Member CCC",
     bio: "Google Sheets and Canva expert with a strong background in poster designing. Passionate about creating visually appealing and informative designs.",
     image: "/images/dharaneesh.jpg",
-    skills: ["Google Sheets", "React.js", "Canva", "Figma"]
+    skills: ["Google Sheets", "React.js", "Canva", "Figma"],
+    portfolioLink:"https://dharaneeshs.netlify.app/"
   }
 ];
 
@@ -320,7 +324,14 @@ function Developers() {
                     <p>{member.bio}</p>
                     
                     <div className="portfolio-container">
-                      <button className="portfolio-btn">View Portfolio</button>
+                      <a 
+                        href={member.portfolioLink} 
+                        className="portfolio-btn" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        View Portfolio
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -19,6 +19,11 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
+// Endpoint for corn Job
+app.get('/ping', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // app.post("/submit", async (req, res) => {
 //   const { spreadsheetId, sheetName, name, email, rollNumber, teamMembers } = req.body;
 

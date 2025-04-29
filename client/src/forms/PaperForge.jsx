@@ -114,6 +114,7 @@ const PaperForge = () => {
         <li>3D Printing &amp; Complex Mechanical Components</li>
         <li>Nano Encapsulation Technique in Food Preservation</li>
         <li>Sustainable and Green Technologies for a Smarter Future</li>
+        <li>Any other technical topics</li>
       </ul>
 
       <p><strong>Guidelines:</strong></p>

@@ -342,7 +342,7 @@ function Developers() {
       </main>
 
       <footer>
-        <p>&copy; Designed and Maintained by Megha</p>
+        <p>&copy; Designed and Maintained by Cognissance team</p>
       </footer>
     </div>
   );
